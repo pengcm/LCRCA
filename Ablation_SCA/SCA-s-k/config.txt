@@ -1,0 +1,62 @@
+2020-04-21-09:50:37
+
+debug: False
+template: .
+n_threads: 6
+cpu: False
+n_GPUs: 1
+seed: 11
+dir_data: ../../DataSet
+dir_demo: ../../DataSet/benchmark
+data_train: ['DIV2K']
+data_test: ['Set5']
+data_range: 1-800/881-900
+ext: sep
+no_augment: False
+scale: [4]
+batch_size: 16
+patch_size: 192
+rgb_range: 255
+n_colors: 3
+model: GRNN
+act: relu
+pre_train: 
+extend: .
+n_resblocks: 16
+n_feats: 64
+res_scale: 1.0
+shift_mean: True
+dilation: False
+precision: single
+G0: 64
+RDNkSize: 3
+RDNconfig: B
+n_resgroups: 10
+reduction: 16
+reset: True
+train_every: 1000
+epochs: 400
+decay: 400-500-600
+lr: 0.0002
+gamma: 0.5
+split_batch: 1
+chop: False
+self_ensemble: False
+test_only: False
+optimizer: ADAM
+momentum: 0.9
+betas: (0.9, 0.999)
+epsilon: 1e-08
+weight_decay: 0
+gclip: 0
+loss: 1*L1
+gan_k: 1
+skip_threshold: 1000000.0
+save: tz042102
+load: 
+resume: 0
+save_models: False
+print_every: 200
+save_results: False
+save_gt: False
+

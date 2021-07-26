@@ -1,0 +1,4982 @@
+GRNN(
+  (sub_mean): MeanShift(3, 3, kernel_size=(1, 1), stride=(1, 1))
+  (add_mean): MeanShift(3, 3, kernel_size=(1, 1), stride=(1, 1))
+  (head): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (bodypre): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (group): ModuleList(
+    (0): ResGroup(
+      (b1): ReBlock(
+        (conv1): Sequential(
+          (0): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): ReLU(inplace=True)
+        )
+        (conv2): Sequential(
+          (0): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+        (relu): ReLU(inplace=True)
+      )
+      (b2): ReBlock(
+        (conv1): Sequential(
+          (0): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): ReLU(inplace=True)
+        )
+        (conv2): Sequential(
+          (0): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+        (relu): ReLU(inplace=True)
+      )
+      (b3): ReBlock(
+        (conv1): Sequential(
+          (0): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): ReLU(inplace=True)
+        )
+        (conv2): Sequential(
+          (0): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+        (relu): ReLU(inplace=True)
+      )
+      (cat2): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+      (cat3): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+      (cat4): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+      (sca): SCALayer(
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(4, 64, kernel_size=(1, 2), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+    )
+    (1): ResGroup(
+      (b1): ReBlock(
+        (conv1): Sequential(
+          (0): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): ReLU(inplace=True)
+        )
+        (conv2): Sequential(
+          (0): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+        (relu): ReLU(inplace=True)
+      )
+      (b2): ReBlock(
+        (conv1): Sequential(
+          (0): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): ReLU(inplace=True)
+        )
+        (conv2): Sequential(
+          (0): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+        (relu): ReLU(inplace=True)
+      )
+      (b3): ReBlock(
+        (conv1): Sequential(
+          (0): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): ReLU(inplace=True)
+        )
+        (conv2): Sequential(
+          (0): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+        (relu): ReLU(inplace=True)
+      )
+      (cat2): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+      (cat3): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+      (cat4): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+      (sca): SCALayer(
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(4, 64, kernel_size=(1, 2), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+    )
+    (2): ResGroup(
+      (b1): ReBlock(
+        (conv1): Sequential(
+          (0): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): ReLU(inplace=True)
+        )
+        (conv2): Sequential(
+          (0): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+        (relu): ReLU(inplace=True)
+      )
+      (b2): ReBlock(
+        (conv1): Sequential(
+          (0): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): ReLU(inplace=True)
+        )
+        (conv2): Sequential(
+          (0): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+        (relu): ReLU(inplace=True)
+      )
+      (b3): ReBlock(
+        (conv1): Sequential(
+          (0): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): ReLU(inplace=True)
+        )
+        (conv2): Sequential(
+          (0): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+        (relu): ReLU(inplace=True)
+      )
+      (cat2): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+      (cat3): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+      (cat4): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+      (sca): SCALayer(
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace=True)
+          (2): Conv2d(4, 64, kernel_size=(1, 2), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+    )
+  )
+  (concat): ModuleList(
+    (0): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+    (1): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+    (2): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+  )
+  (tail): UpInter(
+    (0): Conv2d(64, 48, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): PixelShuffle(upscale_factor=4)
+  )
+)
+[Epoch 1]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 16.4203]	11.2+0.8s
+[6400/16000]	[L1: 13.0152]	11.2+0.7s
+[9600/16000]	[L1: 11.4871]	11.4+0.6s
+[12800/16000]	[L1: 10.5919]	11.4+0.7s
+[16000/16000]	[L1: 10.0762]	11.6+0.7s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 29.42537 (Best: 29.42537 @epoch 1)
+Total: 0.50s
+
+[Epoch 2]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 7.7384]	11.5+0.9s
+[6400/16000]	[L1: 7.6321]	11.8+0.3s
+[9600/16000]	[L1: 7.5986]	11.6+0.4s
+[12800/16000]	[L1: 7.5391]	11.8+0.2s
+[16000/16000]	[L1: 7.4571]	11.8+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 30.01968 (Best: 30.01968 @epoch 2)
+Total: 0.54s
+
+[Epoch 3]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 7.1478]	11.7+0.8s
+[6400/16000]	[L1: 7.1725]	11.8+0.2s
+[9600/16000]	[L1: 7.2422]	11.8+0.4s
+[12800/16000]	[L1: 7.2630]	11.8+0.5s
+[16000/16000]	[L1: 7.2375]	12.0+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 30.42172 (Best: 30.42172 @epoch 3)
+Total: 0.48s
+
+[Epoch 4]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.9782]	11.7+0.9s
+[6400/16000]	[L1: 7.0623]	12.1+0.2s
+[9600/16000]	[L1: 7.0503]	12.2+0.3s
+[12800/16000]	[L1: 7.0566]	12.1+0.3s
+[16000/16000]	[L1: 7.0259]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 30.55306 (Best: 30.55306 @epoch 4)
+Total: 0.50s
+
+[Epoch 5]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 7.0203]	12.1+0.5s
+[6400/16000]	[L1: 6.9491]	12.0+0.6s
+[9600/16000]	[L1: 6.9415]	12.0+0.5s
+[12800/16000]	[L1: 6.9918]	12.0+0.5s
+[16000/16000]	[L1: 6.9640]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 30.79815 (Best: 30.79815 @epoch 5)
+Total: 0.50s
+
+[Epoch 6]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.9014]	11.6+1.0s
+[6400/16000]	[L1: 6.9246]	11.9+0.5s
+[9600/16000]	[L1: 6.9185]	12.1+0.4s
+[12800/16000]	[L1: 6.8969]	12.1+0.5s
+[16000/16000]	[L1: 6.9121]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 30.92858 (Best: 30.92858 @epoch 6)
+Total: 0.50s
+
+[Epoch 7]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.7437]	12.0+0.6s
+[6400/16000]	[L1: 6.8408]	12.1+0.4s
+[9600/16000]	[L1: 6.8358]	12.2+0.3s
+[12800/16000]	[L1: 6.8489]	12.1+0.4s
+[16000/16000]	[L1: 6.8442]	11.9+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 30.98790 (Best: 30.98790 @epoch 7)
+Total: 0.50s
+
+[Epoch 8]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.7956]	12.0+0.9s
+[6400/16000]	[L1: 6.8226]	11.9+0.5s
+[9600/16000]	[L1: 6.8430]	12.1+0.3s
+[12800/16000]	[L1: 6.8370]	12.2+0.2s
+[16000/16000]	[L1: 6.8521]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.08207 (Best: 31.08207 @epoch 8)
+Total: 0.49s
+
+[Epoch 9]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.7893]	12.2+0.7s
+[6400/16000]	[L1: 6.8292]	12.1+0.5s
+[9600/16000]	[L1: 6.8479]	12.2+0.3s
+[12800/16000]	[L1: 6.8315]	12.1+0.5s
+[16000/16000]	[L1: 6.8090]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.17659 (Best: 31.17659 @epoch 9)
+Total: 0.52s
+
+[Epoch 10]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.7533]	12.0+0.8s
+[6400/16000]	[L1: 6.7747]	12.1+0.5s
+[9600/16000]	[L1: 6.8610]	12.2+0.2s
+[12800/16000]	[L1: 6.7921]	12.3+0.2s
+[16000/16000]	[L1: 6.8107]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.11164 (Best: 31.17659 @epoch 9)
+Total: 0.48s
+
+[Epoch 11]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.7940]	12.1+0.7s
+[6400/16000]	[L1: 6.8242]	12.1+0.6s
+[9600/16000]	[L1: 6.7765]	12.1+0.5s
+[12800/16000]	[L1: 6.7665]	12.1+0.5s
+[16000/16000]	[L1: 6.7824]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.26972 (Best: 31.26972 @epoch 11)
+Total: 0.48s
+
+[Epoch 12]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.8273]	12.1+0.6s
+[6400/16000]	[L1: 6.7383]	12.1+0.4s
+[9600/16000]	[L1: 6.7370]	12.1+0.5s
+[12800/16000]	[L1: 6.6895]	12.2+0.4s
+[16000/16000]	[L1: 6.6908]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.26218 (Best: 31.26972 @epoch 11)
+Total: 0.47s
+
+[Epoch 13]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.7582]	12.1+0.8s
+[6400/16000]	[L1: 6.6789]	12.1+0.4s
+[9600/16000]	[L1: 6.6757]	12.1+0.3s
+[12800/16000]	[L1: 6.7060]	12.2+0.3s
+[16000/16000]	[L1: 6.6801]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.27205 (Best: 31.27205 @epoch 13)
+Total: 0.52s
+
+[Epoch 14]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.6149]	12.1+0.7s
+[6400/16000]	[L1: 6.7707]	12.1+0.5s
+[9600/16000]	[L1: 6.6925]	11.8+0.9s
+[12800/16000]	[L1: 6.6979]	12.2+0.3s
+[16000/16000]	[L1: 6.6767]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.34385 (Best: 31.34385 @epoch 14)
+Total: 0.50s
+
+[Epoch 15]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.7036]	11.9+0.9s
+[6400/16000]	[L1: 6.7527]	12.2+0.4s
+[9600/16000]	[L1: 6.6850]	12.1+0.3s
+[12800/16000]	[L1: 6.7055]	12.1+0.4s
+[16000/16000]	[L1: 6.7105]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.41211 (Best: 31.41211 @epoch 15)
+Total: 0.50s
+
+[Epoch 16]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5380]	12.0+0.7s
+[6400/16000]	[L1: 6.6469]	12.0+0.4s
+[9600/16000]	[L1: 6.6390]	12.1+0.5s
+[12800/16000]	[L1: 6.6440]	12.1+0.5s
+[16000/16000]	[L1: 6.6071]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.41940 (Best: 31.41940 @epoch 16)
+Total: 0.51s
+
+[Epoch 17]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.7343]	12.2+0.7s
+[6400/16000]	[L1: 6.7630]	12.1+0.4s
+[9600/16000]	[L1: 6.7109]	12.0+0.6s
+[12800/16000]	[L1: 6.6974]	12.0+0.4s
+[16000/16000]	[L1: 6.6928]	12.1+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.51608 (Best: 31.51608 @epoch 17)
+Total: 0.44s
+
+[Epoch 18]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5511]	12.0+1.0s
+[6400/16000]	[L1: 6.5851]	12.2+0.4s
+[9600/16000]	[L1: 6.6052]	12.3+0.2s
+[12800/16000]	[L1: 6.6296]	12.0+0.5s
+[16000/16000]	[L1: 6.6383]	12.1+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.43445 (Best: 31.51608 @epoch 17)
+Total: 0.49s
+
+[Epoch 19]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.6123]	12.1+0.8s
+[6400/16000]	[L1: 6.5894]	11.9+0.5s
+[9600/16000]	[L1: 6.5923]	12.0+0.5s
+[12800/16000]	[L1: 6.5953]	12.1+0.3s
+[16000/16000]	[L1: 6.6062]	12.3+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.50276 (Best: 31.51608 @epoch 17)
+Total: 0.56s
+
+[Epoch 20]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5531]	12.1+0.8s
+[6400/16000]	[L1: 6.5722]	12.1+0.5s
+[9600/16000]	[L1: 6.5649]	12.0+0.5s
+[12800/16000]	[L1: 6.5619]	12.2+0.3s
+[16000/16000]	[L1: 6.5831]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.48490 (Best: 31.51608 @epoch 17)
+Total: 0.46s
+
+[Epoch 21]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.6418]	12.2+0.6s
+[6400/16000]	[L1: 6.6704]	12.1+0.4s
+[9600/16000]	[L1: 6.6277]	12.0+0.7s
+[12800/16000]	[L1: 6.6364]	12.1+0.5s
+[16000/16000]	[L1: 6.6456]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.57713 (Best: 31.57713 @epoch 21)
+Total: 0.52s
+
+[Epoch 22]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.7138]	12.2+0.7s
+[6400/16000]	[L1: 6.6886]	12.1+0.3s
+[9600/16000]	[L1: 6.6768]	12.0+0.5s
+[12800/16000]	[L1: 6.6386]	12.0+0.5s
+[16000/16000]	[L1: 6.6492]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.59162 (Best: 31.59162 @epoch 22)
+Total: 0.47s
+
+[Epoch 23]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.6274]	12.1+0.8s
+[6400/16000]	[L1: 6.5694]	12.1+0.4s
+[9600/16000]	[L1: 6.5760]	11.9+0.7s
+[12800/16000]	[L1: 6.6118]	12.1+0.4s
+[16000/16000]	[L1: 6.6222]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.62310 (Best: 31.62310 @epoch 23)
+Total: 0.48s
+
+[Epoch 24]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5959]	12.1+0.8s
+[6400/16000]	[L1: 6.6599]	12.3+0.2s
+[9600/16000]	[L1: 6.6670]	11.9+0.6s
+[12800/16000]	[L1: 6.6237]	12.1+0.4s
+[16000/16000]	[L1: 6.6099]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.58782 (Best: 31.62310 @epoch 23)
+Total: 0.51s
+
+[Epoch 25]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3810]	12.1+0.8s
+[6400/16000]	[L1: 6.5479]	12.2+0.4s
+[9600/16000]	[L1: 6.6195]	12.0+0.4s
+[12800/16000]	[L1: 6.6292]	12.1+0.4s
+[16000/16000]	[L1: 6.6259]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.63591 (Best: 31.63591 @epoch 25)
+Total: 0.48s
+
+[Epoch 26]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5706]	12.1+0.6s
+[6400/16000]	[L1: 6.6657]	12.2+0.5s
+[9600/16000]	[L1: 6.6251]	12.2+0.3s
+[12800/16000]	[L1: 6.5920]	12.1+0.5s
+[16000/16000]	[L1: 6.5721]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.64225 (Best: 31.64225 @epoch 26)
+Total: 0.47s
+
+[Epoch 27]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5173]	12.2+0.5s
+[6400/16000]	[L1: 6.5020]	12.1+0.5s
+[9600/16000]	[L1: 6.5411]	12.0+0.5s
+[12800/16000]	[L1: 6.5225]	12.2+0.5s
+[16000/16000]	[L1: 6.4990]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.60517 (Best: 31.64225 @epoch 26)
+Total: 0.47s
+
+[Epoch 28]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5276]	12.1+0.8s
+[6400/16000]	[L1: 6.5677]	12.1+0.6s
+[9600/16000]	[L1: 6.5191]	12.1+0.5s
+[12800/16000]	[L1: 6.4812]	11.9+0.6s
+[16000/16000]	[L1: 6.5068]	12.1+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.67999 (Best: 31.67999 @epoch 28)
+Total: 0.52s
+
+[Epoch 29]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.6284]	12.1+0.8s
+[6400/16000]	[L1: 6.5731]	12.1+0.4s
+[9600/16000]	[L1: 6.5565]	12.0+0.4s
+[12800/16000]	[L1: 6.5443]	12.0+0.6s
+[16000/16000]	[L1: 6.5377]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.63650 (Best: 31.67999 @epoch 28)
+Total: 0.46s
+
+[Epoch 30]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.6233]	12.2+0.7s
+[6400/16000]	[L1: 6.5715]	12.1+0.4s
+[9600/16000]	[L1: 6.5559]	12.1+0.4s
+[12800/16000]	[L1: 6.5761]	11.9+0.6s
+[16000/16000]	[L1: 6.5573]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.66896 (Best: 31.67999 @epoch 28)
+Total: 0.51s
+
+[Epoch 31]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3838]	12.2+0.8s
+[6400/16000]	[L1: 6.5008]	12.1+0.4s
+[9600/16000]	[L1: 6.5489]	12.3+0.3s
+[12800/16000]	[L1: 6.4843]	12.1+0.5s
+[16000/16000]	[L1: 6.4705]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.67122 (Best: 31.67999 @epoch 28)
+Total: 0.51s
+
+[Epoch 32]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3705]	12.1+1.0s
+[6400/16000]	[L1: 6.4687]	12.1+0.4s
+[9600/16000]	[L1: 6.4994]	12.2+0.2s
+[12800/16000]	[L1: 6.4958]	12.2+0.2s
+[16000/16000]	[L1: 6.4999]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.68325 (Best: 31.68325 @epoch 32)
+Total: 0.50s
+
+[Epoch 33]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4815]	12.2+0.7s
+[6400/16000]	[L1: 6.4667]	12.0+0.5s
+[9600/16000]	[L1: 6.5246]	12.1+0.3s
+[12800/16000]	[L1: 6.5336]	12.1+0.4s
+[16000/16000]	[L1: 6.5540]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.74197 (Best: 31.74197 @epoch 33)
+Total: 0.49s
+
+[Epoch 34]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5588]	12.0+0.9s
+[6400/16000]	[L1: 6.5362]	12.1+0.4s
+[9600/16000]	[L1: 6.5255]	12.1+0.5s
+[12800/16000]	[L1: 6.5453]	12.2+0.2s
+[16000/16000]	[L1: 6.5569]	11.9+0.7s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.74506 (Best: 31.74506 @epoch 34)
+Total: 0.50s
+
+[Epoch 35]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5464]	12.0+0.9s
+[6400/16000]	[L1: 6.5228]	11.9+0.4s
+[9600/16000]	[L1: 6.5246]	12.2+0.3s
+[12800/16000]	[L1: 6.5225]	12.2+0.3s
+[16000/16000]	[L1: 6.5326]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.73734 (Best: 31.74506 @epoch 34)
+Total: 0.50s
+
+[Epoch 36]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.6054]	11.9+1.0s
+[6400/16000]	[L1: 6.5833]	12.0+0.5s
+[9600/16000]	[L1: 6.5857]	12.0+0.4s
+[12800/16000]	[L1: 6.5594]	12.1+0.3s
+[16000/16000]	[L1: 6.5436]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.72327 (Best: 31.74506 @epoch 34)
+Total: 0.51s
+
+[Epoch 37]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4502]	12.0+0.6s
+[6400/16000]	[L1: 6.4453]	12.2+0.4s
+[9600/16000]	[L1: 6.4418]	12.1+0.4s
+[12800/16000]	[L1: 6.4986]	12.1+0.5s
+[16000/16000]	[L1: 6.5357]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.73622 (Best: 31.74506 @epoch 34)
+Total: 0.50s
+
+[Epoch 38]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4370]	12.0+0.7s
+[6400/16000]	[L1: 6.5208]	12.1+0.4s
+[9600/16000]	[L1: 6.5314]	12.0+0.5s
+[12800/16000]	[L1: 6.5424]	12.1+0.4s
+[16000/16000]	[L1: 6.5619]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.79274 (Best: 31.79274 @epoch 38)
+Total: 0.49s
+
+[Epoch 39]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5254]	11.9+0.8s
+[6400/16000]	[L1: 6.5024]	12.1+0.5s
+[9600/16000]	[L1: 6.4918]	11.8+0.7s
+[12800/16000]	[L1: 6.5216]	12.1+0.5s
+[16000/16000]	[L1: 6.4917]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.72193 (Best: 31.79274 @epoch 38)
+Total: 0.49s
+
+[Epoch 40]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4706]	11.9+1.0s
+[6400/16000]	[L1: 6.4674]	12.1+0.4s
+[9600/16000]	[L1: 6.5165]	12.2+0.4s
+[12800/16000]	[L1: 6.5523]	12.1+0.4s
+[16000/16000]	[L1: 6.5567]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.79500 (Best: 31.79500 @epoch 40)
+Total: 0.50s
+
+[Epoch 41]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5334]	12.2+0.7s
+[6400/16000]	[L1: 6.4947]	12.0+0.5s
+[9600/16000]	[L1: 6.4345]	11.9+0.5s
+[12800/16000]	[L1: 6.4712]	12.2+0.3s
+[16000/16000]	[L1: 6.4894]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.69582 (Best: 31.79500 @epoch 40)
+Total: 0.51s
+
+[Epoch 42]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4978]	12.0+0.9s
+[6400/16000]	[L1: 6.5372]	12.0+0.5s
+[9600/16000]	[L1: 6.5333]	12.0+0.6s
+[12800/16000]	[L1: 6.5369]	12.2+0.4s
+[16000/16000]	[L1: 6.5367]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.76674 (Best: 31.79500 @epoch 40)
+Total: 0.47s
+
+[Epoch 43]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4972]	12.1+0.6s
+[6400/16000]	[L1: 6.5070]	12.0+0.5s
+[9600/16000]	[L1: 6.4981]	12.1+0.5s
+[12800/16000]	[L1: 6.5060]	12.2+0.3s
+[16000/16000]	[L1: 6.5172]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.74417 (Best: 31.79500 @epoch 40)
+Total: 0.47s
+
+[Epoch 44]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5052]	12.1+0.8s
+[6400/16000]	[L1: 6.5291]	12.1+0.7s
+[9600/16000]	[L1: 6.5708]	12.1+0.3s
+[12800/16000]	[L1: 6.5534]	12.2+0.2s
+[16000/16000]	[L1: 6.5202]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.77801 (Best: 31.79500 @epoch 40)
+Total: 0.49s
+
+[Epoch 45]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3801]	12.0+1.1s
+[6400/16000]	[L1: 6.3523]	12.0+0.4s
+[9600/16000]	[L1: 6.4657]	12.1+0.5s
+[12800/16000]	[L1: 6.4728]	12.1+0.5s
+[16000/16000]	[L1: 6.4777]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.76166 (Best: 31.79500 @epoch 40)
+Total: 0.45s
+
+[Epoch 46]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4364]	12.0+1.1s
+[6400/16000]	[L1: 6.4527]	12.0+0.6s
+[9600/16000]	[L1: 6.4493]	12.1+0.5s
+[12800/16000]	[L1: 6.4949]	12.2+0.3s
+[16000/16000]	[L1: 6.4778]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.83468 (Best: 31.83468 @epoch 46)
+Total: 0.51s
+
+[Epoch 47]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4767]	12.0+0.8s
+[6400/16000]	[L1: 6.4565]	12.0+0.5s
+[9600/16000]	[L1: 6.5052]	12.2+0.3s
+[12800/16000]	[L1: 6.5084]	12.2+0.3s
+[16000/16000]	[L1: 6.4934]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.79672 (Best: 31.83468 @epoch 46)
+Total: 0.51s
+
+[Epoch 48]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5097]	12.2+0.5s
+[6400/16000]	[L1: 6.4779]	12.1+0.5s
+[9600/16000]	[L1: 6.4383]	12.0+0.5s
+[12800/16000]	[L1: 6.4267]	11.9+0.6s
+[16000/16000]	[L1: 6.4515]	11.8+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.83812 (Best: 31.83812 @epoch 48)
+Total: 0.47s
+
+[Epoch 49]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4500]	12.1+0.8s
+[6400/16000]	[L1: 6.5079]	12.2+0.3s
+[9600/16000]	[L1: 6.4539]	12.0+0.2s
+[12800/16000]	[L1: 6.4573]	11.8+0.5s
+[16000/16000]	[L1: 6.4486]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.83025 (Best: 31.83812 @epoch 48)
+Total: 0.47s
+
+[Epoch 50]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.6171]	12.1+0.8s
+[6400/16000]	[L1: 6.5254]	12.2+0.4s
+[9600/16000]	[L1: 6.5036]	12.1+0.5s
+[12800/16000]	[L1: 6.4886]	12.2+0.3s
+[16000/16000]	[L1: 6.4983]	11.6+0.8s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.78318 (Best: 31.83812 @epoch 48)
+Total: 0.48s
+
+[Epoch 51]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4094]	11.9+0.8s
+[6400/16000]	[L1: 6.4460]	12.2+0.3s
+[9600/16000]	[L1: 6.4423]	12.2+0.4s
+[12800/16000]	[L1: 6.4751]	12.2+0.5s
+[16000/16000]	[L1: 6.4645]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.81319 (Best: 31.83812 @epoch 48)
+Total: 0.51s
+
+[Epoch 52]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3749]	12.0+0.8s
+[6400/16000]	[L1: 6.4264]	12.2+0.3s
+[9600/16000]	[L1: 6.4507]	12.1+0.6s
+[12800/16000]	[L1: 6.4491]	12.2+0.4s
+[16000/16000]	[L1: 6.4440]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.84178 (Best: 31.84178 @epoch 52)
+Total: 0.52s
+
+[Epoch 53]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4909]	12.1+0.7s
+[6400/16000]	[L1: 6.5214]	12.1+0.3s
+[9600/16000]	[L1: 6.4519]	12.2+0.3s
+[12800/16000]	[L1: 6.4549]	12.1+0.4s
+[16000/16000]	[L1: 6.4726]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.79819 (Best: 31.84178 @epoch 52)
+Total: 0.48s
+
+[Epoch 54]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4487]	12.1+0.7s
+[6400/16000]	[L1: 6.4243]	12.1+0.5s
+[9600/16000]	[L1: 6.4248]	12.0+0.6s
+[12800/16000]	[L1: 6.4218]	12.1+0.4s
+[16000/16000]	[L1: 6.4496]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.83173 (Best: 31.84178 @epoch 52)
+Total: 0.51s
+
+[Epoch 55]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3340]	12.2+0.6s
+[6400/16000]	[L1: 6.4422]	12.3+0.3s
+[9600/16000]	[L1: 6.4496]	12.0+0.6s
+[12800/16000]	[L1: 6.4624]	12.1+0.5s
+[16000/16000]	[L1: 6.4493]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.83210 (Best: 31.84178 @epoch 52)
+Total: 0.48s
+
+[Epoch 56]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4979]	12.1+0.7s
+[6400/16000]	[L1: 6.5028]	12.2+0.4s
+[9600/16000]	[L1: 6.4937]	12.2+0.3s
+[12800/16000]	[L1: 6.4670]	12.2+0.3s
+[16000/16000]	[L1: 6.4445]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.83699 (Best: 31.84178 @epoch 52)
+Total: 0.49s
+
+[Epoch 57]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5095]	12.0+0.9s
+[6400/16000]	[L1: 6.4889]	12.2+0.2s
+[9600/16000]	[L1: 6.4773]	12.1+0.4s
+[12800/16000]	[L1: 6.4602]	12.1+0.5s
+[16000/16000]	[L1: 6.4741]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.77655 (Best: 31.84178 @epoch 52)
+Total: 0.52s
+
+[Epoch 58]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3911]	12.0+0.6s
+[6400/16000]	[L1: 6.3571]	12.2+0.5s
+[9600/16000]	[L1: 6.4281]	12.0+0.5s
+[12800/16000]	[L1: 6.4231]	12.1+0.4s
+[16000/16000]	[L1: 6.4352]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.81717 (Best: 31.84178 @epoch 52)
+Total: 0.48s
+
+[Epoch 59]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4201]	11.9+1.0s
+[6400/16000]	[L1: 6.4515]	12.0+0.5s
+[9600/16000]	[L1: 6.4937]	12.2+0.4s
+[12800/16000]	[L1: 6.4917]	12.1+0.4s
+[16000/16000]	[L1: 6.4768]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.83206 (Best: 31.84178 @epoch 52)
+Total: 0.50s
+
+[Epoch 60]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5260]	12.0+1.0s
+[6400/16000]	[L1: 6.6157]	12.0+0.5s
+[9600/16000]	[L1: 6.5512]	12.1+0.4s
+[12800/16000]	[L1: 6.4953]	12.2+0.4s
+[16000/16000]	[L1: 6.4816]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.87790 (Best: 31.87790 @epoch 60)
+Total: 0.51s
+
+[Epoch 61]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5023]	12.0+0.8s
+[6400/16000]	[L1: 6.4253]	12.1+0.4s
+[9600/16000]	[L1: 6.4086]	12.2+0.3s
+[12800/16000]	[L1: 6.4297]	12.3+0.2s
+[16000/16000]	[L1: 6.4543]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.84589 (Best: 31.87790 @epoch 60)
+Total: 0.50s
+
+[Epoch 62]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4636]	12.1+0.8s
+[6400/16000]	[L1: 6.5178]	11.9+0.7s
+[9600/16000]	[L1: 6.5188]	12.1+0.4s
+[12800/16000]	[L1: 6.4670]	11.8+0.6s
+[16000/16000]	[L1: 6.4593]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.84472 (Best: 31.87790 @epoch 60)
+Total: 0.50s
+
+[Epoch 63]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4274]	12.1+0.8s
+[6400/16000]	[L1: 6.4751]	12.0+0.5s
+[9600/16000]	[L1: 6.4248]	12.2+0.3s
+[12800/16000]	[L1: 6.4162]	11.8+0.8s
+[16000/16000]	[L1: 6.4320]	11.9+0.7s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.91435 (Best: 31.91435 @epoch 63)
+Total: 0.51s
+
+[Epoch 64]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3610]	12.1+0.7s
+[6400/16000]	[L1: 6.4359]	12.1+0.4s
+[9600/16000]	[L1: 6.4943]	12.1+0.3s
+[12800/16000]	[L1: 6.4577]	12.1+0.5s
+[16000/16000]	[L1: 6.4612]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.82231 (Best: 31.91435 @epoch 63)
+Total: 0.50s
+
+[Epoch 65]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3283]	12.1+0.7s
+[6400/16000]	[L1: 6.3474]	12.2+0.3s
+[9600/16000]	[L1: 6.3510]	11.9+0.5s
+[12800/16000]	[L1: 6.3709]	12.2+0.4s
+[16000/16000]	[L1: 6.3957]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.83006 (Best: 31.91435 @epoch 63)
+Total: 0.47s
+
+[Epoch 66]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.6829]	12.2+0.6s
+[6400/16000]	[L1: 6.5081]	12.3+0.4s
+[9600/16000]	[L1: 6.5247]	12.1+0.4s
+[12800/16000]	[L1: 6.5410]	11.9+0.7s
+[16000/16000]	[L1: 6.5310]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.90406 (Best: 31.91435 @epoch 63)
+Total: 0.51s
+
+[Epoch 67]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3424]	12.1+0.8s
+[6400/16000]	[L1: 6.4830]	12.1+0.5s
+[9600/16000]	[L1: 6.4697]	12.0+0.7s
+[12800/16000]	[L1: 6.4888]	12.0+0.7s
+[16000/16000]	[L1: 6.4847]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.85989 (Best: 31.91435 @epoch 63)
+Total: 0.47s
+
+[Epoch 68]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3668]	12.0+1.0s
+[6400/16000]	[L1: 6.3952]	12.1+0.4s
+[9600/16000]	[L1: 6.4128]	11.8+0.7s
+[12800/16000]	[L1: 6.4063]	12.1+0.4s
+[16000/16000]	[L1: 6.4395]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.86145 (Best: 31.91435 @epoch 63)
+Total: 0.50s
+
+[Epoch 69]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4732]	11.9+0.9s
+[6400/16000]	[L1: 6.4475]	12.1+0.4s
+[9600/16000]	[L1: 6.4313]	12.1+0.5s
+[12800/16000]	[L1: 6.4156]	12.1+0.5s
+[16000/16000]	[L1: 6.4208]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.91015 (Best: 31.91435 @epoch 63)
+Total: 0.52s
+
+[Epoch 70]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3419]	12.1+0.7s
+[6400/16000]	[L1: 6.4214]	12.1+0.5s
+[9600/16000]	[L1: 6.4051]	12.0+0.4s
+[12800/16000]	[L1: 6.4126]	12.1+0.4s
+[16000/16000]	[L1: 6.4435]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.79693 (Best: 31.91435 @epoch 63)
+Total: 0.50s
+
+[Epoch 71]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4726]	11.9+1.0s
+[6400/16000]	[L1: 6.4894]	12.1+0.4s
+[9600/16000]	[L1: 6.5017]	12.0+0.6s
+[12800/16000]	[L1: 6.4887]	12.0+0.6s
+[16000/16000]	[L1: 6.4549]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.85837 (Best: 31.91435 @epoch 63)
+Total: 0.48s
+
+[Epoch 72]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3793]	12.2+0.6s
+[6400/16000]	[L1: 6.3622]	12.1+0.4s
+[9600/16000]	[L1: 6.3801]	12.1+0.5s
+[12800/16000]	[L1: 6.3777]	11.9+0.8s
+[16000/16000]	[L1: 6.3973]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.89597 (Best: 31.91435 @epoch 63)
+Total: 0.48s
+
+[Epoch 73]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4048]	12.0+0.8s
+[6400/16000]	[L1: 6.4251]	12.1+0.5s
+[9600/16000]	[L1: 6.3955]	12.1+0.4s
+[12800/16000]	[L1: 6.3617]	12.1+0.5s
+[16000/16000]	[L1: 6.3824]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.82791 (Best: 31.91435 @epoch 63)
+Total: 0.48s
+
+[Epoch 74]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4214]	12.0+0.9s
+[6400/16000]	[L1: 6.3743]	12.2+0.2s
+[9600/16000]	[L1: 6.3964]	11.9+0.8s
+[12800/16000]	[L1: 6.4293]	12.2+0.3s
+[16000/16000]	[L1: 6.4053]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.87663 (Best: 31.91435 @epoch 63)
+Total: 0.51s
+
+[Epoch 75]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3366]	12.1+0.6s
+[6400/16000]	[L1: 6.3849]	12.0+0.6s
+[9600/16000]	[L1: 6.4011]	12.0+0.6s
+[12800/16000]	[L1: 6.3850]	12.1+0.4s
+[16000/16000]	[L1: 6.4081]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.90249 (Best: 31.91435 @epoch 63)
+Total: 0.48s
+
+[Epoch 76]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4717]	11.9+0.9s
+[6400/16000]	[L1: 6.4373]	12.0+0.4s
+[9600/16000]	[L1: 6.4389]	12.2+0.3s
+[12800/16000]	[L1: 6.3851]	12.1+0.5s
+[16000/16000]	[L1: 6.3849]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.89596 (Best: 31.91435 @epoch 63)
+Total: 0.50s
+
+[Epoch 77]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3625]	12.1+0.7s
+[6400/16000]	[L1: 6.3855]	12.2+0.4s
+[9600/16000]	[L1: 6.3749]	12.1+0.6s
+[12800/16000]	[L1: 6.3864]	12.2+0.4s
+[16000/16000]	[L1: 6.4100]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.88197 (Best: 31.91435 @epoch 63)
+Total: 0.49s
+
+[Epoch 78]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3298]	12.1+0.7s
+[6400/16000]	[L1: 6.2886]	12.2+0.2s
+[9600/16000]	[L1: 6.3067]	11.9+0.7s
+[12800/16000]	[L1: 6.3795]	12.0+0.6s
+[16000/16000]	[L1: 6.3719]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.87543 (Best: 31.91435 @epoch 63)
+Total: 0.48s
+
+[Epoch 79]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4062]	11.8+1.1s
+[6400/16000]	[L1: 6.3516]	12.1+0.5s
+[9600/16000]	[L1: 6.4320]	12.1+0.5s
+[12800/16000]	[L1: 6.4321]	11.9+0.7s
+[16000/16000]	[L1: 6.4226]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.84073 (Best: 31.91435 @epoch 63)
+Total: 0.51s
+
+[Epoch 80]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4056]	12.2+0.7s
+[6400/16000]	[L1: 6.3740]	12.1+0.4s
+[9600/16000]	[L1: 6.3278]	12.2+0.3s
+[12800/16000]	[L1: 6.3364]	12.2+0.3s
+[16000/16000]	[L1: 6.3793]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.81024 (Best: 31.91435 @epoch 63)
+Total: 0.52s
+
+[Epoch 81]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4211]	12.1+0.8s
+[6400/16000]	[L1: 6.4203]	12.0+0.5s
+[9600/16000]	[L1: 6.3878]	12.1+0.4s
+[12800/16000]	[L1: 6.3869]	11.7+0.5s
+[16000/16000]	[L1: 6.3954]	11.9+0.7s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.92469 (Best: 31.92469 @epoch 81)
+Total: 0.50s
+
+[Epoch 82]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2217]	12.0+0.9s
+[6400/16000]	[L1: 6.3454]	12.0+0.5s
+[9600/16000]	[L1: 6.4023]	12.2+0.4s
+[12800/16000]	[L1: 6.4030]	12.1+0.5s
+[16000/16000]	[L1: 6.4315]	12.3+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.89323 (Best: 31.92469 @epoch 81)
+Total: 0.51s
+
+[Epoch 83]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2318]	12.2+0.7s
+[6400/16000]	[L1: 6.3052]	12.0+0.5s
+[9600/16000]	[L1: 6.2861]	11.9+0.6s
+[12800/16000]	[L1: 6.3683]	12.1+0.4s
+[16000/16000]	[L1: 6.3713]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.86817 (Best: 31.92469 @epoch 81)
+Total: 0.50s
+
+[Epoch 84]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4183]	12.1+0.7s
+[6400/16000]	[L1: 6.4021]	12.2+0.2s
+[9600/16000]	[L1: 6.3691]	11.9+0.4s
+[12800/16000]	[L1: 6.3624]	12.1+0.5s
+[16000/16000]	[L1: 6.3812]	12.0+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.88981 (Best: 31.92469 @epoch 81)
+Total: 0.52s
+
+[Epoch 85]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3172]	12.1+0.8s
+[6400/16000]	[L1: 6.3369]	12.2+0.3s
+[9600/16000]	[L1: 6.3685]	12.1+0.4s
+[12800/16000]	[L1: 6.3900]	12.3+0.3s
+[16000/16000]	[L1: 6.4049]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.92533 (Best: 31.92533 @epoch 85)
+Total: 0.53s
+
+[Epoch 86]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3811]	12.1+0.8s
+[6400/16000]	[L1: 6.4063]	12.0+0.6s
+[9600/16000]	[L1: 6.3661]	12.2+0.4s
+[12800/16000]	[L1: 6.3844]	11.8+0.8s
+[16000/16000]	[L1: 6.3810]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.93949 (Best: 31.93949 @epoch 86)
+Total: 0.49s
+
+[Epoch 87]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3266]	12.0+0.9s
+[6400/16000]	[L1: 6.4048]	11.8+0.6s
+[9600/16000]	[L1: 6.4051]	12.0+0.6s
+[12800/16000]	[L1: 6.4009]	12.1+0.4s
+[16000/16000]	[L1: 6.4185]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.91033 (Best: 31.93949 @epoch 86)
+Total: 0.49s
+
+[Epoch 88]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2383]	12.1+0.6s
+[6400/16000]	[L1: 6.3513]	12.1+0.5s
+[9600/16000]	[L1: 6.3525]	12.1+0.6s
+[12800/16000]	[L1: 6.3735]	12.2+0.4s
+[16000/16000]	[L1: 6.3607]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.91393 (Best: 31.93949 @epoch 86)
+Total: 0.47s
+
+[Epoch 89]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3173]	12.1+0.8s
+[6400/16000]	[L1: 6.3651]	12.0+0.5s
+[9600/16000]	[L1: 6.3672]	12.1+0.4s
+[12800/16000]	[L1: 6.3874]	12.1+0.4s
+[16000/16000]	[L1: 6.4076]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.93470 (Best: 31.93949 @epoch 86)
+Total: 0.47s
+
+[Epoch 90]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4236]	11.8+1.0s
+[6400/16000]	[L1: 6.4124]	12.1+0.5s
+[9600/16000]	[L1: 6.3864]	12.1+0.6s
+[12800/16000]	[L1: 6.3763]	11.9+0.7s
+[16000/16000]	[L1: 6.4452]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.90910 (Best: 31.93949 @epoch 86)
+Total: 0.51s
+
+[Epoch 91]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3555]	12.0+0.8s
+[6400/16000]	[L1: 6.4123]	12.1+0.5s
+[9600/16000]	[L1: 6.3921]	12.1+0.5s
+[12800/16000]	[L1: 6.4094]	12.1+0.6s
+[16000/16000]	[L1: 6.4058]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.91269 (Best: 31.93949 @epoch 86)
+Total: 0.50s
+
+[Epoch 92]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4075]	11.8+1.0s
+[6400/16000]	[L1: 6.5206]	12.0+0.5s
+[9600/16000]	[L1: 6.4829]	12.1+0.4s
+[12800/16000]	[L1: 6.4739]	12.0+0.4s
+[16000/16000]	[L1: 6.4556]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.87915 (Best: 31.93949 @epoch 86)
+Total: 0.52s
+
+[Epoch 93]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2908]	12.0+0.9s
+[6400/16000]	[L1: 6.3325]	11.9+0.7s
+[9600/16000]	[L1: 6.3570]	12.2+0.4s
+[12800/16000]	[L1: 6.3483]	12.1+0.4s
+[16000/16000]	[L1: 6.3498]	11.9+0.7s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.87602 (Best: 31.93949 @epoch 86)
+Total: 0.48s
+
+[Epoch 94]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2914]	12.1+0.7s
+[6400/16000]	[L1: 6.3025]	12.0+0.6s
+[9600/16000]	[L1: 6.3092]	12.1+0.5s
+[12800/16000]	[L1: 6.3467]	12.1+0.5s
+[16000/16000]	[L1: 6.3364]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.88070 (Best: 31.93949 @epoch 86)
+Total: 0.49s
+
+[Epoch 95]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3531]	12.0+0.8s
+[6400/16000]	[L1: 6.4223]	12.1+0.5s
+[9600/16000]	[L1: 6.4299]	12.1+0.3s
+[12800/16000]	[L1: 6.4148]	11.9+0.5s
+[16000/16000]	[L1: 6.4020]	12.0+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.90853 (Best: 31.93949 @epoch 86)
+Total: 0.45s
+
+[Epoch 96]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2950]	12.1+0.8s
+[6400/16000]	[L1: 6.3508]	12.2+0.5s
+[9600/16000]	[L1: 6.3723]	12.2+0.2s
+[12800/16000]	[L1: 6.3526]	12.1+0.5s
+[16000/16000]	[L1: 6.3589]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.88184 (Best: 31.93949 @epoch 86)
+Total: 0.56s
+
+[Epoch 97]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2950]	12.2+0.6s
+[6400/16000]	[L1: 6.3650]	12.2+0.4s
+[9600/16000]	[L1: 6.3574]	12.1+0.4s
+[12800/16000]	[L1: 6.3427]	12.1+0.5s
+[16000/16000]	[L1: 6.3759]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.98870 (Best: 31.98870 @epoch 97)
+Total: 0.49s
+
+[Epoch 98]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3362]	12.2+0.7s
+[6400/16000]	[L1: 6.4221]	12.1+0.6s
+[9600/16000]	[L1: 6.3857]	12.1+0.4s
+[12800/16000]	[L1: 6.4007]	12.2+0.2s
+[16000/16000]	[L1: 6.3926]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.91619 (Best: 31.98870 @epoch 97)
+Total: 0.48s
+
+[Epoch 99]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4396]	11.9+0.8s
+[6400/16000]	[L1: 6.4968]	12.0+0.4s
+[9600/16000]	[L1: 6.4618]	12.2+0.4s
+[12800/16000]	[L1: 6.4367]	12.0+0.7s
+[16000/16000]	[L1: 6.4134]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.84029 (Best: 31.98870 @epoch 97)
+Total: 0.48s
+
+[Epoch 100]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4365]	12.1+0.6s
+[6400/16000]	[L1: 6.4240]	11.9+0.7s
+[9600/16000]	[L1: 6.4296]	11.9+0.6s
+[12800/16000]	[L1: 6.4126]	12.1+0.3s
+[16000/16000]	[L1: 6.4222]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.96681 (Best: 31.98870 @epoch 97)
+Total: 0.48s
+
+[Epoch 101]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3848]	12.1+0.6s
+[6400/16000]	[L1: 6.3599]	12.2+0.4s
+[9600/16000]	[L1: 6.4087]	12.1+0.4s
+[12800/16000]	[L1: 6.3944]	11.9+0.8s
+[16000/16000]	[L1: 6.3960]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.89683 (Best: 31.98870 @epoch 97)
+Total: 0.52s
+
+[Epoch 102]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3445]	12.2+0.7s
+[6400/16000]	[L1: 6.3803]	12.1+0.4s
+[9600/16000]	[L1: 6.3393]	12.0+0.5s
+[12800/16000]	[L1: 6.3410]	12.2+0.3s
+[16000/16000]	[L1: 6.3503]	11.9+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.93080 (Best: 31.98870 @epoch 97)
+Total: 0.49s
+
+[Epoch 103]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3847]	11.9+1.1s
+[6400/16000]	[L1: 6.2833]	12.2+0.3s
+[9600/16000]	[L1: 6.3494]	12.1+0.5s
+[12800/16000]	[L1: 6.3880]	12.0+0.4s
+[16000/16000]	[L1: 6.3535]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.94026 (Best: 31.98870 @epoch 97)
+Total: 0.48s
+
+[Epoch 104]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3274]	12.1+0.7s
+[6400/16000]	[L1: 6.2762]	12.3+0.1s
+[9600/16000]	[L1: 6.3168]	12.1+0.5s
+[12800/16000]	[L1: 6.3237]	12.3+0.2s
+[16000/16000]	[L1: 6.3260]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.95221 (Best: 31.98870 @epoch 97)
+Total: 0.48s
+
+[Epoch 105]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3748]	12.1+0.8s
+[6400/16000]	[L1: 6.3646]	12.1+0.4s
+[9600/16000]	[L1: 6.3780]	12.2+0.3s
+[12800/16000]	[L1: 6.3975]	12.2+0.4s
+[16000/16000]	[L1: 6.4037]	11.9+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01284 (Best: 32.01284 @epoch 105)
+Total: 0.49s
+
+[Epoch 106]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5548]	12.2+0.8s
+[6400/16000]	[L1: 6.4515]	12.1+0.3s
+[9600/16000]	[L1: 6.4541]	12.1+0.4s
+[12800/16000]	[L1: 6.4412]	12.2+0.4s
+[16000/16000]	[L1: 6.3949]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.88322 (Best: 32.01284 @epoch 105)
+Total: 0.49s
+
+[Epoch 107]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4163]	12.2+0.6s
+[6400/16000]	[L1: 6.4048]	11.9+0.6s
+[9600/16000]	[L1: 6.3468]	12.2+0.2s
+[12800/16000]	[L1: 6.3795]	12.2+0.4s
+[16000/16000]	[L1: 6.3781]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.95495 (Best: 32.01284 @epoch 105)
+Total: 0.49s
+
+[Epoch 108]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2684]	12.1+0.7s
+[6400/16000]	[L1: 6.2958]	12.1+0.5s
+[9600/16000]	[L1: 6.3305]	12.1+0.6s
+[12800/16000]	[L1: 6.3003]	12.1+0.4s
+[16000/16000]	[L1: 6.3109]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99989 (Best: 32.01284 @epoch 105)
+Total: 0.49s
+
+[Epoch 109]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5259]	12.0+0.8s
+[6400/16000]	[L1: 6.3916]	12.0+0.5s
+[9600/16000]	[L1: 6.3476]	12.2+0.3s
+[12800/16000]	[L1: 6.3809]	12.2+0.3s
+[16000/16000]	[L1: 6.3607]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.97487 (Best: 32.01284 @epoch 105)
+Total: 0.49s
+
+[Epoch 110]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4034]	12.0+0.8s
+[6400/16000]	[L1: 6.3537]	12.1+0.5s
+[9600/16000]	[L1: 6.3257]	12.0+0.3s
+[12800/16000]	[L1: 6.3420]	12.1+0.5s
+[16000/16000]	[L1: 6.3527]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.92986 (Best: 32.01284 @epoch 105)
+Total: 0.48s
+
+[Epoch 111]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3449]	11.9+1.1s
+[6400/16000]	[L1: 6.3285]	12.1+0.6s
+[9600/16000]	[L1: 6.3051]	12.2+0.3s
+[12800/16000]	[L1: 6.3060]	12.1+0.5s
+[16000/16000]	[L1: 6.3310]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.90322 (Best: 32.01284 @epoch 105)
+Total: 0.51s
+
+[Epoch 112]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3103]	11.9+1.0s
+[6400/16000]	[L1: 6.3702]	12.2+0.3s
+[9600/16000]	[L1: 6.3673]	12.1+0.4s
+[12800/16000]	[L1: 6.3516]	12.1+0.5s
+[16000/16000]	[L1: 6.3477]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.95723 (Best: 32.01284 @epoch 105)
+Total: 0.50s
+
+[Epoch 113]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4920]	12.0+1.0s
+[6400/16000]	[L1: 6.4040]	12.2+0.2s
+[9600/16000]	[L1: 6.3468]	12.0+0.6s
+[12800/16000]	[L1: 6.3216]	12.2+0.2s
+[16000/16000]	[L1: 6.3355]	12.3+0.1s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.94929 (Best: 32.01284 @epoch 105)
+Total: 0.51s
+
+[Epoch 114]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4409]	12.1+0.9s
+[6400/16000]	[L1: 6.4091]	12.1+0.5s
+[9600/16000]	[L1: 6.4695]	12.1+0.6s
+[12800/16000]	[L1: 6.4341]	12.2+0.4s
+[16000/16000]	[L1: 6.3995]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.97889 (Best: 32.01284 @epoch 105)
+Total: 0.47s
+
+[Epoch 115]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4317]	11.9+0.9s
+[6400/16000]	[L1: 6.3581]	12.1+0.5s
+[9600/16000]	[L1: 6.3118]	12.1+0.5s
+[12800/16000]	[L1: 6.3191]	12.1+0.4s
+[16000/16000]	[L1: 6.3146]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.92606 (Best: 32.01284 @epoch 105)
+Total: 0.48s
+
+[Epoch 116]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4968]	12.1+0.7s
+[6400/16000]	[L1: 6.3670]	12.0+0.7s
+[9600/16000]	[L1: 6.3435]	12.2+0.3s
+[12800/16000]	[L1: 6.3610]	12.0+0.6s
+[16000/16000]	[L1: 6.3682]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.95394 (Best: 32.01284 @epoch 105)
+Total: 0.49s
+
+[Epoch 117]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4437]	12.1+0.8s
+[6400/16000]	[L1: 6.4126]	12.0+0.3s
+[9600/16000]	[L1: 6.3750]	12.2+0.5s
+[12800/16000]	[L1: 6.3860]	11.9+0.6s
+[16000/16000]	[L1: 6.3447]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00299 (Best: 32.01284 @epoch 105)
+Total: 0.49s
+
+[Epoch 118]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5024]	12.0+0.8s
+[6400/16000]	[L1: 6.4059]	12.2+0.5s
+[9600/16000]	[L1: 6.3960]	12.2+0.3s
+[12800/16000]	[L1: 6.3760]	12.0+0.5s
+[16000/16000]	[L1: 6.3881]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99050 (Best: 32.01284 @epoch 105)
+Total: 0.50s
+
+[Epoch 119]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4139]	12.0+0.8s
+[6400/16000]	[L1: 6.4258]	12.2+0.3s
+[9600/16000]	[L1: 6.4305]	12.2+0.4s
+[12800/16000]	[L1: 6.3985]	12.1+0.4s
+[16000/16000]	[L1: 6.4107]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.90937 (Best: 32.01284 @epoch 105)
+Total: 0.51s
+
+[Epoch 120]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3923]	12.1+0.8s
+[6400/16000]	[L1: 6.3542]	12.2+0.4s
+[9600/16000]	[L1: 6.3735]	11.8+0.7s
+[12800/16000]	[L1: 6.3504]	12.2+0.3s
+[16000/16000]	[L1: 6.3477]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.96430 (Best: 32.01284 @epoch 105)
+Total: 0.51s
+
+[Epoch 121]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2990]	12.0+0.9s
+[6400/16000]	[L1: 6.3445]	12.2+0.2s
+[9600/16000]	[L1: 6.3849]	12.0+0.6s
+[12800/16000]	[L1: 6.3865]	12.2+0.5s
+[16000/16000]	[L1: 6.3801]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.93553 (Best: 32.01284 @epoch 105)
+Total: 0.43s
+
+[Epoch 122]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3855]	12.2+0.8s
+[6400/16000]	[L1: 6.3981]	12.1+0.4s
+[9600/16000]	[L1: 6.3611]	12.0+0.5s
+[12800/16000]	[L1: 6.3642]	12.2+0.4s
+[16000/16000]	[L1: 6.3801]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.98190 (Best: 32.01284 @epoch 105)
+Total: 0.49s
+
+[Epoch 123]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4166]	12.3+0.6s
+[6400/16000]	[L1: 6.4337]	12.0+0.5s
+[9600/16000]	[L1: 6.3810]	12.1+0.4s
+[12800/16000]	[L1: 6.3804]	12.1+0.4s
+[16000/16000]	[L1: 6.3887]	12.0+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99417 (Best: 32.01284 @epoch 105)
+Total: 0.50s
+
+[Epoch 124]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2976]	12.2+0.6s
+[6400/16000]	[L1: 6.3039]	12.2+0.3s
+[9600/16000]	[L1: 6.3639]	12.0+0.6s
+[12800/16000]	[L1: 6.3586]	12.2+0.4s
+[16000/16000]	[L1: 6.3757]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.89463 (Best: 32.01284 @epoch 105)
+Total: 0.50s
+
+[Epoch 125]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3672]	12.0+0.9s
+[6400/16000]	[L1: 6.4564]	12.2+0.4s
+[9600/16000]	[L1: 6.4810]	12.0+0.6s
+[12800/16000]	[L1: 6.4608]	12.2+0.4s
+[16000/16000]	[L1: 6.4253]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.98019 (Best: 32.01284 @epoch 105)
+Total: 0.48s
+
+[Epoch 126]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4490]	12.2+0.6s
+[6400/16000]	[L1: 6.4370]	12.1+0.4s
+[9600/16000]	[L1: 6.4467]	12.2+0.2s
+[12800/16000]	[L1: 6.4030]	11.9+0.6s
+[16000/16000]	[L1: 6.3883]	12.1+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.96223 (Best: 32.01284 @epoch 105)
+Total: 0.48s
+
+[Epoch 127]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4114]	12.1+0.8s
+[6400/16000]	[L1: 6.3845]	12.0+0.7s
+[9600/16000]	[L1: 6.3844]	11.8+0.5s
+[12800/16000]	[L1: 6.3723]	12.2+0.3s
+[16000/16000]	[L1: 6.3615]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.92397 (Best: 32.01284 @epoch 105)
+Total: 0.48s
+
+[Epoch 128]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4142]	12.0+0.9s
+[6400/16000]	[L1: 6.4219]	11.8+0.5s
+[9600/16000]	[L1: 6.4079]	12.2+0.2s
+[12800/16000]	[L1: 6.4028]	12.2+0.2s
+[16000/16000]	[L1: 6.4040]	12.0+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.88181 (Best: 32.01284 @epoch 105)
+Total: 0.49s
+
+[Epoch 129]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3257]	12.1+0.8s
+[6400/16000]	[L1: 6.3392]	12.1+0.6s
+[9600/16000]	[L1: 6.2911]	12.2+0.4s
+[12800/16000]	[L1: 6.3190]	12.1+0.4s
+[16000/16000]	[L1: 6.3449]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99093 (Best: 32.01284 @epoch 105)
+Total: 0.53s
+
+[Epoch 130]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3911]	12.3+0.4s
+[6400/16000]	[L1: 6.3323]	12.0+0.5s
+[9600/16000]	[L1: 6.3000]	12.2+0.3s
+[12800/16000]	[L1: 6.3372]	12.0+0.6s
+[16000/16000]	[L1: 6.3476]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.93674 (Best: 32.01284 @epoch 105)
+Total: 0.48s
+
+[Epoch 131]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2173]	12.2+0.6s
+[6400/16000]	[L1: 6.2765]	12.0+0.6s
+[9600/16000]	[L1: 6.2625]	12.1+0.4s
+[12800/16000]	[L1: 6.2665]	12.2+0.4s
+[16000/16000]	[L1: 6.2955]	12.3+0.1s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.92580 (Best: 32.01284 @epoch 105)
+Total: 0.49s
+
+[Epoch 132]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5170]	12.0+0.9s
+[6400/16000]	[L1: 6.4333]	12.1+0.3s
+[9600/16000]	[L1: 6.3820]	12.1+0.4s
+[12800/16000]	[L1: 6.3425]	12.1+0.6s
+[16000/16000]	[L1: 6.3632]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.95026 (Best: 32.01284 @epoch 105)
+Total: 0.50s
+
+[Epoch 133]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3991]	12.2+1.0s
+[6400/16000]	[L1: 6.4247]	12.0+0.5s
+[9600/16000]	[L1: 6.3794]	12.1+0.6s
+[12800/16000]	[L1: 6.3860]	11.9+0.4s
+[16000/16000]	[L1: 6.3590]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.96172 (Best: 32.01284 @epoch 105)
+Total: 0.50s
+
+[Epoch 134]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3800]	12.2+0.5s
+[6400/16000]	[L1: 6.3473]	12.2+0.2s
+[9600/16000]	[L1: 6.3562]	11.9+0.6s
+[12800/16000]	[L1: 6.3627]	11.8+0.5s
+[16000/16000]	[L1: 6.3417]	12.3+0.1s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.94912 (Best: 32.01284 @epoch 105)
+Total: 0.50s
+
+[Epoch 135]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2586]	11.8+1.0s
+[6400/16000]	[L1: 6.2508]	12.1+0.4s
+[9600/16000]	[L1: 6.3168]	12.2+0.3s
+[12800/16000]	[L1: 6.3271]	12.2+0.4s
+[16000/16000]	[L1: 6.3149]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99564 (Best: 32.01284 @epoch 105)
+Total: 0.52s
+
+[Epoch 136]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4148]	11.9+0.6s
+[6400/16000]	[L1: 6.3589]	12.1+0.3s
+[9600/16000]	[L1: 6.3241]	11.6+0.9s
+[12800/16000]	[L1: 6.2886]	12.0+0.6s
+[16000/16000]	[L1: 6.2844]	12.0+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01691 (Best: 32.01691 @epoch 136)
+Total: 0.48s
+
+[Epoch 137]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3517]	12.2+0.7s
+[6400/16000]	[L1: 6.2841]	12.1+0.4s
+[9600/16000]	[L1: 6.3030]	12.2+0.3s
+[12800/16000]	[L1: 6.2964]	12.1+0.6s
+[16000/16000]	[L1: 6.3221]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.92538 (Best: 32.01691 @epoch 136)
+Total: 0.49s
+
+[Epoch 138]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2339]	12.0+0.8s
+[6400/16000]	[L1: 6.2615]	12.2+0.3s
+[9600/16000]	[L1: 6.2626]	12.2+0.4s
+[12800/16000]	[L1: 6.3173]	12.2+0.4s
+[16000/16000]	[L1: 6.3075]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.92906 (Best: 32.01691 @epoch 136)
+Total: 0.51s
+
+[Epoch 139]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4148]	12.2+0.5s
+[6400/16000]	[L1: 6.3754]	12.1+0.4s
+[9600/16000]	[L1: 6.3590]	11.9+0.5s
+[12800/16000]	[L1: 6.3454]	12.2+0.3s
+[16000/16000]	[L1: 6.3723]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.95863 (Best: 32.01691 @epoch 136)
+Total: 0.44s
+
+[Epoch 140]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4452]	12.1+1.0s
+[6400/16000]	[L1: 6.4210]	12.2+0.3s
+[9600/16000]	[L1: 6.3306]	12.2+0.2s
+[12800/16000]	[L1: 6.3444]	12.1+0.5s
+[16000/16000]	[L1: 6.3204]	11.9+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.95601 (Best: 32.01691 @epoch 136)
+Total: 0.51s
+
+[Epoch 141]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3923]	12.0+0.8s
+[6400/16000]	[L1: 6.3927]	11.9+0.6s
+[9600/16000]	[L1: 6.3719]	12.0+0.7s
+[12800/16000]	[L1: 6.3353]	12.1+0.5s
+[16000/16000]	[L1: 6.3025]	12.1+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.91389 (Best: 32.01691 @epoch 136)
+Total: 0.50s
+
+[Epoch 142]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3522]	11.9+0.9s
+[6400/16000]	[L1: 6.2684]	12.1+0.4s
+[9600/16000]	[L1: 6.3090]	12.1+0.4s
+[12800/16000]	[L1: 6.3250]	12.1+0.5s
+[16000/16000]	[L1: 6.3422]	11.7+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.95168 (Best: 32.01691 @epoch 136)
+Total: 0.49s
+
+[Epoch 143]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3273]	12.2+0.6s
+[6400/16000]	[L1: 6.4431]	12.1+0.5s
+[9600/16000]	[L1: 6.3693]	12.1+0.3s
+[12800/16000]	[L1: 6.3503]	12.2+0.2s
+[16000/16000]	[L1: 6.3609]	11.9+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99378 (Best: 32.01691 @epoch 136)
+Total: 0.50s
+
+[Epoch 144]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3512]	11.9+0.9s
+[6400/16000]	[L1: 6.3539]	11.9+0.5s
+[9600/16000]	[L1: 6.3629]	11.9+0.5s
+[12800/16000]	[L1: 6.3642]	12.2+0.2s
+[16000/16000]	[L1: 6.3775]	11.7+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.97704 (Best: 32.01691 @epoch 136)
+Total: 0.50s
+
+[Epoch 145]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2734]	12.1+0.9s
+[6400/16000]	[L1: 6.3453]	11.8+0.6s
+[9600/16000]	[L1: 6.3921]	12.1+0.4s
+[12800/16000]	[L1: 6.4028]	12.1+0.4s
+[16000/16000]	[L1: 6.4218]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99275 (Best: 32.01691 @epoch 136)
+Total: 0.53s
+
+[Epoch 146]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3512]	12.1+0.9s
+[6400/16000]	[L1: 6.3522]	12.2+0.1s
+[9600/16000]	[L1: 6.3685]	12.0+0.7s
+[12800/16000]	[L1: 6.3447]	12.1+0.6s
+[16000/16000]	[L1: 6.3336]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.98765 (Best: 32.01691 @epoch 136)
+Total: 0.48s
+
+[Epoch 147]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3691]	11.9+1.0s
+[6400/16000]	[L1: 6.3419]	12.2+0.2s
+[9600/16000]	[L1: 6.3172]	12.1+0.6s
+[12800/16000]	[L1: 6.3404]	12.2+0.4s
+[16000/16000]	[L1: 6.3392]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.96393 (Best: 32.01691 @epoch 136)
+Total: 0.51s
+
+[Epoch 148]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1327]	12.0+0.7s
+[6400/16000]	[L1: 6.2891]	12.2+0.4s
+[9600/16000]	[L1: 6.2985]	12.2+0.3s
+[12800/16000]	[L1: 6.3286]	12.1+0.4s
+[16000/16000]	[L1: 6.3211]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.95360 (Best: 32.01691 @epoch 136)
+Total: 0.51s
+
+[Epoch 149]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2838]	12.2+0.8s
+[6400/16000]	[L1: 6.3159]	12.0+0.6s
+[9600/16000]	[L1: 6.3019]	11.9+0.6s
+[12800/16000]	[L1: 6.3162]	12.2+0.4s
+[16000/16000]	[L1: 6.3274]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.96459 (Best: 32.01691 @epoch 136)
+Total: 0.48s
+
+[Epoch 150]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4337]	11.9+0.9s
+[6400/16000]	[L1: 6.5002]	12.2+0.3s
+[9600/16000]	[L1: 6.4536]	12.2+0.4s
+[12800/16000]	[L1: 6.3915]	11.8+0.7s
+[16000/16000]	[L1: 6.3542]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99732 (Best: 32.01691 @epoch 136)
+Total: 0.48s
+
+[Epoch 151]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3492]	12.0+0.9s
+[6400/16000]	[L1: 6.3246]	12.0+0.4s
+[9600/16000]	[L1: 6.3307]	12.2+0.5s
+[12800/16000]	[L1: 6.3171]	12.1+0.5s
+[16000/16000]	[L1: 6.3493]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.98763 (Best: 32.01691 @epoch 136)
+Total: 0.50s
+
+[Epoch 152]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3260]	12.1+0.8s
+[6400/16000]	[L1: 6.3522]	12.1+0.3s
+[9600/16000]	[L1: 6.3812]	12.2+0.3s
+[12800/16000]	[L1: 6.3465]	12.1+0.4s
+[16000/16000]	[L1: 6.3497]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01667 (Best: 32.01691 @epoch 136)
+Total: 0.50s
+
+[Epoch 153]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3987]	12.1+0.7s
+[6400/16000]	[L1: 6.3135]	12.1+0.4s
+[9600/16000]	[L1: 6.3110]	12.2+0.2s
+[12800/16000]	[L1: 6.3569]	11.9+0.5s
+[16000/16000]	[L1: 6.3674]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.98698 (Best: 32.01691 @epoch 136)
+Total: 0.51s
+
+[Epoch 154]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4875]	12.2+0.7s
+[6400/16000]	[L1: 6.5243]	12.2+0.4s
+[9600/16000]	[L1: 6.4555]	12.0+0.7s
+[12800/16000]	[L1: 6.4458]	12.2+0.3s
+[16000/16000]	[L1: 6.4270]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01289 (Best: 32.01691 @epoch 136)
+Total: 0.49s
+
+[Epoch 155]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4118]	12.0+0.8s
+[6400/16000]	[L1: 6.3686]	12.1+0.4s
+[9600/16000]	[L1: 6.3549]	12.1+0.4s
+[12800/16000]	[L1: 6.3385]	12.2+0.4s
+[16000/16000]	[L1: 6.3544]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00456 (Best: 32.01691 @epoch 136)
+Total: 0.49s
+
+[Epoch 156]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4520]	12.0+0.9s
+[6400/16000]	[L1: 6.3870]	12.1+0.5s
+[9600/16000]	[L1: 6.4299]	12.1+0.3s
+[12800/16000]	[L1: 6.3696]	12.1+0.4s
+[16000/16000]	[L1: 6.3318]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01500 (Best: 32.01691 @epoch 136)
+Total: 0.53s
+
+[Epoch 157]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4054]	12.2+0.6s
+[6400/16000]	[L1: 6.3826]	12.0+0.5s
+[9600/16000]	[L1: 6.3938]	12.0+0.6s
+[12800/16000]	[L1: 6.3681]	12.2+0.4s
+[16000/16000]	[L1: 6.3608]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99278 (Best: 32.01691 @epoch 136)
+Total: 0.50s
+
+[Epoch 158]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2417]	12.2+0.6s
+[6400/16000]	[L1: 6.2803]	12.0+0.5s
+[9600/16000]	[L1: 6.2921]	12.1+0.4s
+[12800/16000]	[L1: 6.2978]	12.0+0.5s
+[16000/16000]	[L1: 6.3121]	11.8+0.7s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.92451 (Best: 32.01691 @epoch 136)
+Total: 0.52s
+
+[Epoch 159]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2321]	12.2+0.6s
+[6400/16000]	[L1: 6.2542]	12.2+0.2s
+[9600/16000]	[L1: 6.2924]	12.1+0.4s
+[12800/16000]	[L1: 6.2967]	12.2+0.3s
+[16000/16000]	[L1: 6.3123]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01074 (Best: 32.01691 @epoch 136)
+Total: 0.50s
+
+[Epoch 160]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4141]	12.1+0.7s
+[6400/16000]	[L1: 6.3538]	12.2+0.4s
+[9600/16000]	[L1: 6.3570]	12.2+0.1s
+[12800/16000]	[L1: 6.3519]	12.1+0.6s
+[16000/16000]	[L1: 6.3310]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.95767 (Best: 32.01691 @epoch 136)
+Total: 0.48s
+
+[Epoch 161]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1678]	11.9+1.0s
+[6400/16000]	[L1: 6.2033]	12.1+0.3s
+[9600/16000]	[L1: 6.2844]	12.2+0.3s
+[12800/16000]	[L1: 6.2907]	12.0+0.5s
+[16000/16000]	[L1: 6.2943]	12.3+0.1s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.94124 (Best: 32.01691 @epoch 136)
+Total: 0.53s
+
+[Epoch 162]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3054]	12.2+0.8s
+[6400/16000]	[L1: 6.3053]	12.2+0.4s
+[9600/16000]	[L1: 6.3189]	11.8+0.8s
+[12800/16000]	[L1: 6.2700]	12.2+0.4s
+[16000/16000]	[L1: 6.3000]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02150 (Best: 32.02150 @epoch 162)
+Total: 0.54s
+
+[Epoch 163]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2886]	12.2+0.8s
+[6400/16000]	[L1: 6.3012]	12.0+0.5s
+[9600/16000]	[L1: 6.3297]	12.2+0.4s
+[12800/16000]	[L1: 6.3221]	12.2+0.4s
+[16000/16000]	[L1: 6.3198]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.95723 (Best: 32.02150 @epoch 162)
+Total: 0.49s
+
+[Epoch 164]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2271]	12.0+0.8s
+[6400/16000]	[L1: 6.2643]	12.2+0.3s
+[9600/16000]	[L1: 6.3005]	12.0+0.6s
+[12800/16000]	[L1: 6.3003]	12.1+0.4s
+[16000/16000]	[L1: 6.3072]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.97001 (Best: 32.02150 @epoch 162)
+Total: 0.52s
+
+[Epoch 165]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4265]	12.0+1.0s
+[6400/16000]	[L1: 6.3771]	12.2+0.4s
+[9600/16000]	[L1: 6.3642]	12.2+0.3s
+[12800/16000]	[L1: 6.3519]	12.1+0.5s
+[16000/16000]	[L1: 6.3460]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03259 (Best: 32.03259 @epoch 165)
+Total: 0.49s
+
+[Epoch 166]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4783]	12.1+0.8s
+[6400/16000]	[L1: 6.4802]	12.0+0.4s
+[9600/16000]	[L1: 6.4599]	12.1+0.5s
+[12800/16000]	[L1: 6.3999]	12.0+0.5s
+[16000/16000]	[L1: 6.3703]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01424 (Best: 32.03259 @epoch 165)
+Total: 0.50s
+
+[Epoch 167]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2680]	12.0+0.9s
+[6400/16000]	[L1: 6.2214]	12.1+0.5s
+[9600/16000]	[L1: 6.2433]	12.2+0.4s
+[12800/16000]	[L1: 6.2574]	11.9+0.6s
+[16000/16000]	[L1: 6.2691]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.90203 (Best: 32.03259 @epoch 165)
+Total: 0.53s
+
+[Epoch 168]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3369]	12.1+0.8s
+[6400/16000]	[L1: 6.3152]	12.1+0.4s
+[9600/16000]	[L1: 6.3370]	12.1+0.6s
+[12800/16000]	[L1: 6.3126]	12.2+0.3s
+[16000/16000]	[L1: 6.3500]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.96507 (Best: 32.03259 @epoch 165)
+Total: 0.49s
+
+[Epoch 169]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3274]	12.2+0.6s
+[6400/16000]	[L1: 6.3183]	12.2+0.3s
+[9600/16000]	[L1: 6.3327]	12.2+0.3s
+[12800/16000]	[L1: 6.3261]	12.2+0.4s
+[16000/16000]	[L1: 6.3471]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03676 (Best: 32.03676 @epoch 169)
+Total: 0.49s
+
+[Epoch 170]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3265]	12.1+0.8s
+[6400/16000]	[L1: 6.3042]	12.3+0.2s
+[9600/16000]	[L1: 6.2760]	12.1+0.5s
+[12800/16000]	[L1: 6.2894]	12.2+0.3s
+[16000/16000]	[L1: 6.3210]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.96749 (Best: 32.03676 @epoch 169)
+Total: 0.46s
+
+[Epoch 171]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2535]	12.2+0.7s
+[6400/16000]	[L1: 6.3246]	12.1+0.3s
+[9600/16000]	[L1: 6.3268]	12.1+0.4s
+[12800/16000]	[L1: 6.3453]	12.0+0.6s
+[16000/16000]	[L1: 6.3300]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99706 (Best: 32.03676 @epoch 169)
+Total: 0.49s
+
+[Epoch 172]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5311]	12.0+0.8s
+[6400/16000]	[L1: 6.4702]	12.1+0.3s
+[9600/16000]	[L1: 6.3859]	12.2+0.2s
+[12800/16000]	[L1: 6.3398]	12.1+0.5s
+[16000/16000]	[L1: 6.3136]	12.2+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.97407 (Best: 32.03676 @epoch 169)
+Total: 0.51s
+
+[Epoch 173]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1891]	12.2+0.6s
+[6400/16000]	[L1: 6.2855]	12.0+0.3s
+[9600/16000]	[L1: 6.3025]	12.2+0.4s
+[12800/16000]	[L1: 6.3370]	12.1+0.5s
+[16000/16000]	[L1: 6.3347]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99462 (Best: 32.03676 @epoch 169)
+Total: 0.53s
+
+[Epoch 174]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1149]	12.1+0.8s
+[6400/16000]	[L1: 6.1980]	12.0+0.6s
+[9600/16000]	[L1: 6.2728]	12.2+0.3s
+[12800/16000]	[L1: 6.2572]	12.2+0.3s
+[16000/16000]	[L1: 6.2590]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99776 (Best: 32.03676 @epoch 169)
+Total: 0.50s
+
+[Epoch 175]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2901]	12.2+0.8s
+[6400/16000]	[L1: 6.3234]	12.0+0.6s
+[9600/16000]	[L1: 6.2765]	12.1+0.4s
+[12800/16000]	[L1: 6.2863]	12.2+0.4s
+[16000/16000]	[L1: 6.2631]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.91375 (Best: 32.03676 @epoch 169)
+Total: 0.52s
+
+[Epoch 176]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1830]	12.2+0.7s
+[6400/16000]	[L1: 6.2806]	12.2+0.4s
+[9600/16000]	[L1: 6.2770]	12.1+0.3s
+[12800/16000]	[L1: 6.2898]	12.0+0.4s
+[16000/16000]	[L1: 6.3055]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.94510 (Best: 32.03676 @epoch 169)
+Total: 0.51s
+
+[Epoch 177]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3008]	12.0+0.8s
+[6400/16000]	[L1: 6.2955]	11.9+0.6s
+[9600/16000]	[L1: 6.3259]	12.1+0.5s
+[12800/16000]	[L1: 6.2993]	12.2+0.3s
+[16000/16000]	[L1: 6.2922]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00988 (Best: 32.03676 @epoch 169)
+Total: 0.48s
+
+[Epoch 178]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2336]	12.2+0.7s
+[6400/16000]	[L1: 6.2617]	12.0+0.5s
+[9600/16000]	[L1: 6.2910]	12.2+0.3s
+[12800/16000]	[L1: 6.3228]	12.0+0.6s
+[16000/16000]	[L1: 6.3081]	12.3+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00699 (Best: 32.03676 @epoch 169)
+Total: 0.53s
+
+[Epoch 179]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2159]	12.2+0.7s
+[6400/16000]	[L1: 6.2779]	12.0+0.5s
+[9600/16000]	[L1: 6.2755]	12.1+0.5s
+[12800/16000]	[L1: 6.2816]	12.2+0.3s
+[16000/16000]	[L1: 6.3126]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99078 (Best: 32.03676 @epoch 169)
+Total: 0.48s
+
+[Epoch 180]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1796]	12.3+0.5s
+[6400/16000]	[L1: 6.3324]	12.0+0.6s
+[9600/16000]	[L1: 6.3389]	12.1+0.3s
+[12800/16000]	[L1: 6.3624]	12.2+0.3s
+[16000/16000]	[L1: 6.3677]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04036 (Best: 32.04036 @epoch 180)
+Total: 0.53s
+
+[Epoch 181]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3590]	12.0+0.8s
+[6400/16000]	[L1: 6.2451]	12.2+0.4s
+[9600/16000]	[L1: 6.2527]	11.7+0.6s
+[12800/16000]	[L1: 6.3367]	12.1+0.7s
+[16000/16000]	[L1: 6.3450]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03783 (Best: 32.04036 @epoch 180)
+Total: 0.48s
+
+[Epoch 182]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2762]	11.9+1.1s
+[6400/16000]	[L1: 6.2510]	12.2+0.4s
+[9600/16000]	[L1: 6.3164]	12.2+0.3s
+[12800/16000]	[L1: 6.3245]	12.1+0.5s
+[16000/16000]	[L1: 6.3491]	11.9+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.96335 (Best: 32.04036 @epoch 180)
+Total: 0.49s
+
+[Epoch 183]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2142]	12.1+0.8s
+[6400/16000]	[L1: 6.2773]	12.1+0.3s
+[9600/16000]	[L1: 6.3081]	11.9+0.6s
+[12800/16000]	[L1: 6.3358]	12.2+0.5s
+[16000/16000]	[L1: 6.3246]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00746 (Best: 32.04036 @epoch 180)
+Total: 0.49s
+
+[Epoch 184]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2786]	12.2+0.6s
+[6400/16000]	[L1: 6.2297]	12.1+0.3s
+[9600/16000]	[L1: 6.2753]	12.2+0.4s
+[12800/16000]	[L1: 6.3050]	12.1+0.6s
+[16000/16000]	[L1: 6.3150]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00387 (Best: 32.04036 @epoch 180)
+Total: 0.49s
+
+[Epoch 185]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3002]	12.2+0.7s
+[6400/16000]	[L1: 6.3183]	12.1+0.3s
+[9600/16000]	[L1: 6.3283]	12.2+0.5s
+[12800/16000]	[L1: 6.3379]	12.1+0.4s
+[16000/16000]	[L1: 6.3455]	12.3+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02625 (Best: 32.04036 @epoch 180)
+Total: 0.49s
+
+[Epoch 186]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5171]	12.1+0.7s
+[6400/16000]	[L1: 6.3691]	12.0+0.5s
+[9600/16000]	[L1: 6.3917]	12.1+0.5s
+[12800/16000]	[L1: 6.3598]	11.9+0.4s
+[16000/16000]	[L1: 6.3648]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00795 (Best: 32.04036 @epoch 180)
+Total: 0.50s
+
+[Epoch 187]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2223]	12.0+0.8s
+[6400/16000]	[L1: 6.2862]	11.8+0.8s
+[9600/16000]	[L1: 6.2755]	12.0+0.6s
+[12800/16000]	[L1: 6.3126]	12.2+0.3s
+[16000/16000]	[L1: 6.3277]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00368 (Best: 32.04036 @epoch 180)
+Total: 0.50s
+
+[Epoch 188]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2952]	12.2+0.6s
+[6400/16000]	[L1: 6.2577]	12.2+0.3s
+[9600/16000]	[L1: 6.2744]	12.2+0.4s
+[12800/16000]	[L1: 6.2921]	12.3+0.4s
+[16000/16000]	[L1: 6.2919]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.98723 (Best: 32.04036 @epoch 180)
+Total: 0.49s
+
+[Epoch 189]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2252]	12.2+0.7s
+[6400/16000]	[L1: 6.2688]	12.1+0.4s
+[9600/16000]	[L1: 6.2567]	12.0+0.7s
+[12800/16000]	[L1: 6.2817]	12.1+0.5s
+[16000/16000]	[L1: 6.2744]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00897 (Best: 32.04036 @epoch 180)
+Total: 0.52s
+
+[Epoch 190]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3132]	12.0+0.9s
+[6400/16000]	[L1: 6.3576]	12.3+0.3s
+[9600/16000]	[L1: 6.3445]	12.1+0.5s
+[12800/16000]	[L1: 6.3269]	12.2+0.2s
+[16000/16000]	[L1: 6.3103]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.92925 (Best: 32.04036 @epoch 180)
+Total: 0.51s
+
+[Epoch 191]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3594]	12.1+0.7s
+[6400/16000]	[L1: 6.3379]	12.1+0.4s
+[9600/16000]	[L1: 6.3896]	12.1+0.3s
+[12800/16000]	[L1: 6.4003]	11.9+0.8s
+[16000/16000]	[L1: 6.3878]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05396 (Best: 32.05396 @epoch 191)
+Total: 0.49s
+
+[Epoch 192]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3962]	12.1+0.8s
+[6400/16000]	[L1: 6.3087]	12.2+0.3s
+[9600/16000]	[L1: 6.3283]	11.9+0.6s
+[12800/16000]	[L1: 6.2817]	12.3+0.1s
+[16000/16000]	[L1: 6.3114]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.96383 (Best: 32.05396 @epoch 191)
+Total: 0.50s
+
+[Epoch 193]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2196]	11.9+0.9s
+[6400/16000]	[L1: 6.2507]	12.2+0.3s
+[9600/16000]	[L1: 6.2711]	11.9+0.7s
+[12800/16000]	[L1: 6.2555]	12.0+0.7s
+[16000/16000]	[L1: 6.2688]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99006 (Best: 32.05396 @epoch 191)
+Total: 0.49s
+
+[Epoch 194]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3583]	12.3+0.6s
+[6400/16000]	[L1: 6.3203]	12.0+0.5s
+[9600/16000]	[L1: 6.3316]	12.0+0.6s
+[12800/16000]	[L1: 6.3452]	12.0+0.5s
+[16000/16000]	[L1: 6.3401]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99022 (Best: 32.05396 @epoch 191)
+Total: 0.50s
+
+[Epoch 195]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3962]	12.1+0.7s
+[6400/16000]	[L1: 6.3001]	11.7+0.6s
+[9600/16000]	[L1: 6.3216]	12.1+0.4s
+[12800/16000]	[L1: 6.3482]	12.2+0.4s
+[16000/16000]	[L1: 6.3533]	11.9+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01093 (Best: 32.05396 @epoch 191)
+Total: 0.53s
+
+[Epoch 196]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4849]	12.1+0.9s
+[6400/16000]	[L1: 6.4326]	12.2+0.3s
+[9600/16000]	[L1: 6.4167]	12.0+0.5s
+[12800/16000]	[L1: 6.3877]	11.9+0.7s
+[16000/16000]	[L1: 6.3859]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99020 (Best: 32.05396 @epoch 191)
+Total: 0.46s
+
+[Epoch 197]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2897]	11.9+1.0s
+[6400/16000]	[L1: 6.2221]	12.0+0.5s
+[9600/16000]	[L1: 6.2569]	12.1+0.4s
+[12800/16000]	[L1: 6.2433]	12.1+0.4s
+[16000/16000]	[L1: 6.2694]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.95818 (Best: 32.05396 @epoch 191)
+Total: 0.50s
+
+[Epoch 198]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1894]	12.0+0.9s
+[6400/16000]	[L1: 6.2159]	12.1+0.4s
+[9600/16000]	[L1: 6.2288]	11.9+0.5s
+[12800/16000]	[L1: 6.2875]	12.2+0.4s
+[16000/16000]	[L1: 6.2872]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03860 (Best: 32.05396 @epoch 191)
+Total: 0.49s
+
+[Epoch 199]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3258]	12.1+0.8s
+[6400/16000]	[L1: 6.3413]	12.1+0.5s
+[9600/16000]	[L1: 6.3636]	12.2+0.4s
+[12800/16000]	[L1: 6.3101]	12.1+0.4s
+[16000/16000]	[L1: 6.3198]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01956 (Best: 32.05396 @epoch 191)
+Total: 0.51s
+
+[Epoch 200]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4057]	12.2+0.6s
+[6400/16000]	[L1: 6.4046]	12.0+0.4s
+[9600/16000]	[L1: 6.3812]	12.1+0.3s
+[12800/16000]	[L1: 6.3449]	12.2+0.4s
+[16000/16000]	[L1: 6.3119]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02267 (Best: 32.05396 @epoch 191)
+Total: 0.51s
+
+[Epoch 201]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2703]	12.1+0.8s
+[6400/16000]	[L1: 6.3086]	12.1+0.5s
+[9600/16000]	[L1: 6.3567]	12.1+0.6s
+[12800/16000]	[L1: 6.3080]	12.2+0.3s
+[16000/16000]	[L1: 6.3245]	11.9+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.96882 (Best: 32.05396 @epoch 191)
+Total: 0.49s
+
+[Epoch 202]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4302]	12.1+0.7s
+[6400/16000]	[L1: 6.3768]	12.2+0.4s
+[9600/16000]	[L1: 6.3148]	12.1+0.4s
+[12800/16000]	[L1: 6.3182]	12.0+0.5s
+[16000/16000]	[L1: 6.3166]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01471 (Best: 32.05396 @epoch 191)
+Total: 0.50s
+
+[Epoch 203]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3430]	12.2+0.8s
+[6400/16000]	[L1: 6.2757]	12.1+0.5s
+[9600/16000]	[L1: 6.3119]	11.9+0.8s
+[12800/16000]	[L1: 6.2821]	12.2+0.4s
+[16000/16000]	[L1: 6.3090]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.95698 (Best: 32.05396 @epoch 191)
+Total: 0.51s
+
+[Epoch 204]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3893]	12.1+0.7s
+[6400/16000]	[L1: 6.3227]	12.0+0.5s
+[9600/16000]	[L1: 6.3126]	12.0+0.7s
+[12800/16000]	[L1: 6.2889]	12.2+0.3s
+[16000/16000]	[L1: 6.2796]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00380 (Best: 32.05396 @epoch 191)
+Total: 0.48s
+
+[Epoch 205]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2794]	12.1+0.7s
+[6400/16000]	[L1: 6.3964]	12.2+0.3s
+[9600/16000]	[L1: 6.4100]	12.1+0.4s
+[12800/16000]	[L1: 6.3166]	12.1+0.4s
+[16000/16000]	[L1: 6.3022]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.95431 (Best: 32.05396 @epoch 191)
+Total: 0.48s
+
+[Epoch 206]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1935]	12.2+0.6s
+[6400/16000]	[L1: 6.2042]	12.0+0.6s
+[9600/16000]	[L1: 6.2511]	12.0+0.7s
+[12800/16000]	[L1: 6.2489]	12.0+0.4s
+[16000/16000]	[L1: 6.2768]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99394 (Best: 32.05396 @epoch 191)
+Total: 0.50s
+
+[Epoch 207]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3486]	12.0+1.0s
+[6400/16000]	[L1: 6.3601]	12.1+0.4s
+[9600/16000]	[L1: 6.3059]	12.1+0.4s
+[12800/16000]	[L1: 6.3238]	12.1+0.3s
+[16000/16000]	[L1: 6.3287]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03780 (Best: 32.05396 @epoch 191)
+Total: 0.47s
+
+[Epoch 208]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3725]	12.1+0.8s
+[6400/16000]	[L1: 6.3925]	11.9+0.7s
+[9600/16000]	[L1: 6.3848]	12.2+0.4s
+[12800/16000]	[L1: 6.3357]	12.2+0.3s
+[16000/16000]	[L1: 6.3196]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.94468 (Best: 32.05396 @epoch 191)
+Total: 0.52s
+
+[Epoch 209]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2347]	12.0+0.8s
+[6400/16000]	[L1: 6.3499]	12.2+0.4s
+[9600/16000]	[L1: 6.3482]	12.0+0.5s
+[12800/16000]	[L1: 6.3142]	12.0+0.5s
+[16000/16000]	[L1: 6.3176]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00327 (Best: 32.05396 @epoch 191)
+Total: 0.42s
+
+[Epoch 210]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2953]	12.0+0.9s
+[6400/16000]	[L1: 6.3063]	12.1+0.5s
+[9600/16000]	[L1: 6.2991]	11.9+0.7s
+[12800/16000]	[L1: 6.3076]	12.1+0.5s
+[16000/16000]	[L1: 6.3530]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03172 (Best: 32.05396 @epoch 191)
+Total: 0.50s
+
+[Epoch 211]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2669]	12.2+0.7s
+[6400/16000]	[L1: 6.2669]	12.0+0.4s
+[9600/16000]	[L1: 6.2627]	12.1+0.5s
+[12800/16000]	[L1: 6.2644]	12.0+0.5s
+[16000/16000]	[L1: 6.3078]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03251 (Best: 32.05396 @epoch 191)
+Total: 0.53s
+
+[Epoch 212]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3256]	12.1+0.8s
+[6400/16000]	[L1: 6.2656]	12.2+0.4s
+[9600/16000]	[L1: 6.2802]	12.1+0.4s
+[12800/16000]	[L1: 6.3084]	12.2+0.3s
+[16000/16000]	[L1: 6.3067]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01294 (Best: 32.05396 @epoch 191)
+Total: 0.49s
+
+[Epoch 213]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2225]	12.1+0.7s
+[6400/16000]	[L1: 6.2858]	12.0+0.5s
+[9600/16000]	[L1: 6.2896]	12.2+0.3s
+[12800/16000]	[L1: 6.2473]	12.2+0.3s
+[16000/16000]	[L1: 6.2813]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.97774 (Best: 32.05396 @epoch 191)
+Total: 0.49s
+
+[Epoch 214]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1905]	12.1+0.8s
+[6400/16000]	[L1: 6.3206]	11.8+0.6s
+[9600/16000]	[L1: 6.2982]	12.1+0.5s
+[12800/16000]	[L1: 6.2572]	12.1+0.5s
+[16000/16000]	[L1: 6.2865]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01646 (Best: 32.05396 @epoch 191)
+Total: 0.49s
+
+[Epoch 215]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2487]	12.1+0.6s
+[6400/16000]	[L1: 6.2993]	12.2+0.3s
+[9600/16000]	[L1: 6.2994]	12.2+0.4s
+[12800/16000]	[L1: 6.3010]	12.0+0.5s
+[16000/16000]	[L1: 6.2933]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99562 (Best: 32.05396 @epoch 191)
+Total: 0.49s
+
+[Epoch 216]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4503]	11.9+1.2s
+[6400/16000]	[L1: 6.4286]	12.2+0.2s
+[9600/16000]	[L1: 6.4029]	12.1+0.5s
+[12800/16000]	[L1: 6.3925]	12.0+0.5s
+[16000/16000]	[L1: 6.3444]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05681 (Best: 32.05681 @epoch 216)
+Total: 0.48s
+
+[Epoch 217]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3471]	11.8+1.0s
+[6400/16000]	[L1: 6.2962]	12.1+0.4s
+[9600/16000]	[L1: 6.3394]	12.3+0.3s
+[12800/16000]	[L1: 6.3225]	12.1+0.4s
+[16000/16000]	[L1: 6.3161]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.96952 (Best: 32.05681 @epoch 216)
+Total: 0.50s
+
+[Epoch 218]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2660]	12.1+0.7s
+[6400/16000]	[L1: 6.3152]	12.1+0.6s
+[9600/16000]	[L1: 6.3009]	12.1+0.4s
+[12800/16000]	[L1: 6.3028]	12.2+0.3s
+[16000/16000]	[L1: 6.2870]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.95446 (Best: 32.05681 @epoch 216)
+Total: 0.50s
+
+[Epoch 219]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2506]	12.0+0.8s
+[6400/16000]	[L1: 6.1894]	12.0+0.7s
+[9600/16000]	[L1: 6.3023]	12.2+0.4s
+[12800/16000]	[L1: 6.3205]	12.2+0.4s
+[16000/16000]	[L1: 6.3059]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00543 (Best: 32.05681 @epoch 216)
+Total: 0.45s
+
+[Epoch 220]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3430]	12.1+0.8s
+[6400/16000]	[L1: 6.3921]	12.0+0.4s
+[9600/16000]	[L1: 6.3746]	11.9+0.6s
+[12800/16000]	[L1: 6.3571]	12.0+0.6s
+[16000/16000]	[L1: 6.3629]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00034 (Best: 32.05681 @epoch 216)
+Total: 0.47s
+
+[Epoch 221]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2267]	12.1+0.8s
+[6400/16000]	[L1: 6.2781]	12.2+0.3s
+[9600/16000]	[L1: 6.3032]	12.1+0.4s
+[12800/16000]	[L1: 6.2960]	12.2+0.3s
+[16000/16000]	[L1: 6.2695]	11.9+0.7s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.98875 (Best: 32.05681 @epoch 216)
+Total: 0.48s
+
+[Epoch 222]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3118]	12.1+0.8s
+[6400/16000]	[L1: 6.3632]	12.1+0.5s
+[9600/16000]	[L1: 6.3353]	12.1+0.4s
+[12800/16000]	[L1: 6.3332]	12.1+0.4s
+[16000/16000]	[L1: 6.3230]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01178 (Best: 32.05681 @epoch 216)
+Total: 0.51s
+
+[Epoch 223]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2590]	12.0+1.0s
+[6400/16000]	[L1: 6.2960]	12.1+0.4s
+[9600/16000]	[L1: 6.2945]	12.0+0.6s
+[12800/16000]	[L1: 6.2944]	12.0+0.5s
+[16000/16000]	[L1: 6.3272]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00580 (Best: 32.05681 @epoch 216)
+Total: 0.43s
+
+[Epoch 224]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3240]	12.1+0.7s
+[6400/16000]	[L1: 6.2955]	12.1+0.4s
+[9600/16000]	[L1: 6.2869]	12.0+0.6s
+[12800/16000]	[L1: 6.2790]	12.2+0.3s
+[16000/16000]	[L1: 6.3187]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.87372 (Best: 32.05681 @epoch 216)
+Total: 0.49s
+
+[Epoch 225]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2800]	12.1+0.7s
+[6400/16000]	[L1: 6.2229]	12.2+0.2s
+[9600/16000]	[L1: 6.2543]	12.1+0.6s
+[12800/16000]	[L1: 6.2708]	12.0+0.5s
+[16000/16000]	[L1: 6.2671]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02635 (Best: 32.05681 @epoch 216)
+Total: 0.50s
+
+[Epoch 226]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1743]	12.2+0.7s
+[6400/16000]	[L1: 6.2353]	12.1+0.4s
+[9600/16000]	[L1: 6.2337]	12.2+0.3s
+[12800/16000]	[L1: 6.2337]	12.1+0.7s
+[16000/16000]	[L1: 6.2394]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02014 (Best: 32.05681 @epoch 216)
+Total: 0.50s
+
+[Epoch 227]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2211]	12.1+0.8s
+[6400/16000]	[L1: 6.2938]	12.1+0.5s
+[9600/16000]	[L1: 6.2863]	12.1+0.4s
+[12800/16000]	[L1: 6.3073]	12.1+0.4s
+[16000/16000]	[L1: 6.2888]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99459 (Best: 32.05681 @epoch 216)
+Total: 0.44s
+
+[Epoch 228]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3110]	11.8+1.0s
+[6400/16000]	[L1: 6.2547]	12.1+0.7s
+[9600/16000]	[L1: 6.2692]	12.2+0.3s
+[12800/16000]	[L1: 6.2743]	12.0+0.5s
+[16000/16000]	[L1: 6.2854]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01454 (Best: 32.05681 @epoch 216)
+Total: 0.53s
+
+[Epoch 229]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3229]	12.0+0.8s
+[6400/16000]	[L1: 6.3200]	12.2+0.3s
+[9600/16000]	[L1: 6.3037]	12.0+0.5s
+[12800/16000]	[L1: 6.3449]	11.8+0.7s
+[16000/16000]	[L1: 6.2976]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01328 (Best: 32.05681 @epoch 216)
+Total: 0.49s
+
+[Epoch 230]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2872]	12.1+0.8s
+[6400/16000]	[L1: 6.3810]	12.1+0.5s
+[9600/16000]	[L1: 6.3429]	12.1+0.4s
+[12800/16000]	[L1: 6.3216]	12.0+0.6s
+[16000/16000]	[L1: 6.3029]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.98789 (Best: 32.05681 @epoch 216)
+Total: 0.47s
+
+[Epoch 231]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3248]	12.0+0.7s
+[6400/16000]	[L1: 6.2351]	12.0+0.5s
+[9600/16000]	[L1: 6.2783]	12.2+0.3s
+[12800/16000]	[L1: 6.2458]	12.0+0.4s
+[16000/16000]	[L1: 6.2477]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.98894 (Best: 32.05681 @epoch 216)
+Total: 0.46s
+
+[Epoch 232]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3220]	12.2+0.6s
+[6400/16000]	[L1: 6.2247]	12.1+0.4s
+[9600/16000]	[L1: 6.2474]	12.1+0.5s
+[12800/16000]	[L1: 6.2489]	12.3+0.2s
+[16000/16000]	[L1: 6.2609]	12.1+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.88674 (Best: 32.05681 @epoch 216)
+Total: 0.50s
+
+[Epoch 233]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2062]	11.8+1.1s
+[6400/16000]	[L1: 6.2774]	12.0+0.6s
+[9600/16000]	[L1: 6.2908]	12.2+0.3s
+[12800/16000]	[L1: 6.3093]	12.2+0.4s
+[16000/16000]	[L1: 6.3069]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02615 (Best: 32.05681 @epoch 216)
+Total: 0.50s
+
+[Epoch 234]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3453]	12.2+0.6s
+[6400/16000]	[L1: 6.3137]	12.1+0.5s
+[9600/16000]	[L1: 6.3955]	12.0+0.6s
+[12800/16000]	[L1: 6.3933]	12.1+0.5s
+[16000/16000]	[L1: 6.3233]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02998 (Best: 32.05681 @epoch 216)
+Total: 0.50s
+
+[Epoch 235]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3501]	12.1+0.7s
+[6400/16000]	[L1: 6.2923]	12.1+0.4s
+[9600/16000]	[L1: 6.2977]	12.0+0.7s
+[12800/16000]	[L1: 6.3277]	12.1+0.4s
+[16000/16000]	[L1: 6.3248]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03242 (Best: 32.05681 @epoch 216)
+Total: 0.49s
+
+[Epoch 236]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2919]	12.0+0.9s
+[6400/16000]	[L1: 6.2776]	12.1+0.4s
+[9600/16000]	[L1: 6.3343]	12.2+0.5s
+[12800/16000]	[L1: 6.3343]	12.1+0.3s
+[16000/16000]	[L1: 6.3552]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03092 (Best: 32.05681 @epoch 216)
+Total: 0.48s
+
+[Epoch 237]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2001]	11.9+1.0s
+[6400/16000]	[L1: 6.2771]	12.1+0.7s
+[9600/16000]	[L1: 6.2870]	12.0+0.5s
+[12800/16000]	[L1: 6.3207]	12.2+0.3s
+[16000/16000]	[L1: 6.3324]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00146 (Best: 32.05681 @epoch 216)
+Total: 0.50s
+
+[Epoch 238]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3535]	12.0+0.9s
+[6400/16000]	[L1: 6.2998]	12.0+0.7s
+[9600/16000]	[L1: 6.2841]	12.2+0.4s
+[12800/16000]	[L1: 6.2480]	12.0+0.6s
+[16000/16000]	[L1: 6.2637]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00161 (Best: 32.05681 @epoch 216)
+Total: 0.49s
+
+[Epoch 239]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2606]	12.2+0.7s
+[6400/16000]	[L1: 6.3451]	12.0+0.5s
+[9600/16000]	[L1: 6.3470]	12.2+0.4s
+[12800/16000]	[L1: 6.3403]	12.2+0.3s
+[16000/16000]	[L1: 6.3099]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02649 (Best: 32.05681 @epoch 216)
+Total: 0.52s
+
+[Epoch 240]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2969]	11.9+0.7s
+[6400/16000]	[L1: 6.3169]	12.1+0.4s
+[9600/16000]	[L1: 6.3535]	12.1+0.4s
+[12800/16000]	[L1: 6.3242]	11.9+0.7s
+[16000/16000]	[L1: 6.2827]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01147 (Best: 32.05681 @epoch 216)
+Total: 0.48s
+
+[Epoch 241]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2758]	12.1+0.7s
+[6400/16000]	[L1: 6.2967]	12.2+0.4s
+[9600/16000]	[L1: 6.3361]	12.1+0.3s
+[12800/16000]	[L1: 6.3535]	12.2+0.2s
+[16000/16000]	[L1: 6.3215]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00668 (Best: 32.05681 @epoch 216)
+Total: 0.48s
+
+[Epoch 242]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2960]	12.1+0.9s
+[6400/16000]	[L1: 6.3542]	12.2+0.2s
+[9600/16000]	[L1: 6.3814]	12.2+0.3s
+[12800/16000]	[L1: 6.3510]	11.9+0.7s
+[16000/16000]	[L1: 6.3680]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02521 (Best: 32.05681 @epoch 216)
+Total: 0.46s
+
+[Epoch 243]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1924]	12.1+0.8s
+[6400/16000]	[L1: 6.2734]	12.1+0.5s
+[9600/16000]	[L1: 6.3152]	12.1+0.4s
+[12800/16000]	[L1: 6.3478]	12.2+0.3s
+[16000/16000]	[L1: 6.3345]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05209 (Best: 32.05681 @epoch 216)
+Total: 0.48s
+
+[Epoch 244]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5297]	12.2+0.5s
+[6400/16000]	[L1: 6.4089]	12.0+0.7s
+[9600/16000]	[L1: 6.4029]	12.0+0.5s
+[12800/16000]	[L1: 6.3929]	12.0+0.5s
+[16000/16000]	[L1: 6.3640]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00450 (Best: 32.05681 @epoch 216)
+Total: 0.53s
+
+[Epoch 245]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2589]	12.1+0.7s
+[6400/16000]	[L1: 6.2937]	12.2+0.3s
+[9600/16000]	[L1: 6.3081]	12.2+0.3s
+[12800/16000]	[L1: 6.2810]	12.2+0.3s
+[16000/16000]	[L1: 6.2843]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.98746 (Best: 32.05681 @epoch 216)
+Total: 0.47s
+
+[Epoch 246]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3612]	12.1+0.7s
+[6400/16000]	[L1: 6.3782]	11.9+0.7s
+[9600/16000]	[L1: 6.3959]	12.1+0.3s
+[12800/16000]	[L1: 6.3660]	12.0+0.7s
+[16000/16000]	[L1: 6.3420]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04321 (Best: 32.05681 @epoch 216)
+Total: 0.51s
+
+[Epoch 247]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3793]	12.1+0.9s
+[6400/16000]	[L1: 6.3420]	12.1+0.5s
+[9600/16000]	[L1: 6.3359]	12.1+0.4s
+[12800/16000]	[L1: 6.2964]	12.2+0.4s
+[16000/16000]	[L1: 6.3015]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01418 (Best: 32.05681 @epoch 216)
+Total: 0.47s
+
+[Epoch 248]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3073]	12.1+0.6s
+[6400/16000]	[L1: 6.2952]	12.1+0.4s
+[9600/16000]	[L1: 6.2626]	12.1+0.5s
+[12800/16000]	[L1: 6.2759]	12.1+0.6s
+[16000/16000]	[L1: 6.2970]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.96850 (Best: 32.05681 @epoch 216)
+Total: 0.50s
+
+[Epoch 249]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4681]	12.2+0.7s
+[6400/16000]	[L1: 6.3354]	12.1+0.6s
+[9600/16000]	[L1: 6.3249]	12.2+0.3s
+[12800/16000]	[L1: 6.3063]	12.0+0.7s
+[16000/16000]	[L1: 6.3017]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99784 (Best: 32.05681 @epoch 216)
+Total: 0.48s
+
+[Epoch 250]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3359]	12.1+0.8s
+[6400/16000]	[L1: 6.3061]	12.2+0.3s
+[9600/16000]	[L1: 6.2896]	12.1+0.3s
+[12800/16000]	[L1: 6.2764]	12.0+0.6s
+[16000/16000]	[L1: 6.2750]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01629 (Best: 32.05681 @epoch 216)
+Total: 0.52s
+
+[Epoch 251]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1823]	12.0+1.0s
+[6400/16000]	[L1: 6.2822]	12.2+0.3s
+[9600/16000]	[L1: 6.3205]	12.0+0.5s
+[12800/16000]	[L1: 6.3335]	12.0+0.5s
+[16000/16000]	[L1: 6.3264]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00719 (Best: 32.05681 @epoch 216)
+Total: 0.49s
+
+[Epoch 252]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3882]	12.1+0.6s
+[6400/16000]	[L1: 6.3029]	11.9+0.6s
+[9600/16000]	[L1: 6.3230]	12.1+0.4s
+[12800/16000]	[L1: 6.3131]	12.0+0.6s
+[16000/16000]	[L1: 6.3352]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03401 (Best: 32.05681 @epoch 216)
+Total: 0.44s
+
+[Epoch 253]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3112]	12.0+0.8s
+[6400/16000]	[L1: 6.2460]	12.0+0.5s
+[9600/16000]	[L1: 6.2897]	12.1+0.4s
+[12800/16000]	[L1: 6.3267]	12.1+0.5s
+[16000/16000]	[L1: 6.3098]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00151 (Best: 32.05681 @epoch 216)
+Total: 0.49s
+
+[Epoch 254]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2145]	12.1+0.7s
+[6400/16000]	[L1: 6.2382]	11.9+0.6s
+[9600/16000]	[L1: 6.2580]	12.2+0.3s
+[12800/16000]	[L1: 6.2591]	12.0+0.5s
+[16000/16000]	[L1: 6.3123]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02818 (Best: 32.05681 @epoch 216)
+Total: 0.51s
+
+[Epoch 255]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2598]	11.9+1.0s
+[6400/16000]	[L1: 6.2695]	12.1+0.5s
+[9600/16000]	[L1: 6.2604]	12.1+0.5s
+[12800/16000]	[L1: 6.2648]	12.0+0.5s
+[16000/16000]	[L1: 6.3044]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99759 (Best: 32.05681 @epoch 216)
+Total: 0.53s
+
+[Epoch 256]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2835]	12.1+0.9s
+[6400/16000]	[L1: 6.2243]	12.2+0.3s
+[9600/16000]	[L1: 6.2249]	12.2+0.3s
+[12800/16000]	[L1: 6.2762]	12.0+0.6s
+[16000/16000]	[L1: 6.2850]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02840 (Best: 32.05681 @epoch 216)
+Total: 0.49s
+
+[Epoch 257]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2401]	12.1+0.6s
+[6400/16000]	[L1: 6.3455]	12.2+0.3s
+[9600/16000]	[L1: 6.3088]	12.1+0.6s
+[12800/16000]	[L1: 6.2975]	12.2+0.3s
+[16000/16000]	[L1: 6.3081]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.94719 (Best: 32.05681 @epoch 216)
+Total: 0.48s
+
+[Epoch 258]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1010]	12.1+0.8s
+[6400/16000]	[L1: 6.1803]	12.1+0.3s
+[9600/16000]	[L1: 6.2200]	12.1+0.5s
+[12800/16000]	[L1: 6.2516]	12.0+0.5s
+[16000/16000]	[L1: 6.2598]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03796 (Best: 32.05681 @epoch 216)
+Total: 0.50s
+
+[Epoch 259]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2992]	12.1+0.7s
+[6400/16000]	[L1: 6.3582]	12.2+0.3s
+[9600/16000]	[L1: 6.2846]	12.1+0.5s
+[12800/16000]	[L1: 6.3103]	12.0+0.4s
+[16000/16000]	[L1: 6.2994]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02630 (Best: 32.05681 @epoch 216)
+Total: 0.47s
+
+[Epoch 260]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2259]	12.0+0.9s
+[6400/16000]	[L1: 6.2446]	12.0+0.5s
+[9600/16000]	[L1: 6.2992]	12.2+0.3s
+[12800/16000]	[L1: 6.3108]	12.0+0.6s
+[16000/16000]	[L1: 6.2984]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05738 (Best: 32.05738 @epoch 260)
+Total: 0.47s
+
+[Epoch 261]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2970]	11.9+1.1s
+[6400/16000]	[L1: 6.3034]	12.1+0.4s
+[9600/16000]	[L1: 6.3457]	12.1+0.5s
+[12800/16000]	[L1: 6.3135]	12.3+0.3s
+[16000/16000]	[L1: 6.2973]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02964 (Best: 32.05738 @epoch 260)
+Total: 0.50s
+
+[Epoch 262]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2209]	12.1+0.7s
+[6400/16000]	[L1: 6.1891]	12.1+0.4s
+[9600/16000]	[L1: 6.1939]	12.2+0.5s
+[12800/16000]	[L1: 6.2593]	12.0+0.6s
+[16000/16000]	[L1: 6.2598]	11.8+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04388 (Best: 32.05738 @epoch 260)
+Total: 0.48s
+
+[Epoch 263]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2152]	12.1+0.7s
+[6400/16000]	[L1: 6.3896]	12.1+0.6s
+[9600/16000]	[L1: 6.3473]	12.2+0.4s
+[12800/16000]	[L1: 6.3285]	11.9+0.6s
+[16000/16000]	[L1: 6.3110]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.97785 (Best: 32.05738 @epoch 260)
+Total: 0.48s
+
+[Epoch 264]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3888]	12.0+0.9s
+[6400/16000]	[L1: 6.4033]	12.1+0.5s
+[9600/16000]	[L1: 6.3752]	12.1+0.5s
+[12800/16000]	[L1: 6.3250]	12.2+0.5s
+[16000/16000]	[L1: 6.3340]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02505 (Best: 32.05738 @epoch 260)
+Total: 0.48s
+
+[Epoch 265]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4126]	12.2+0.6s
+[6400/16000]	[L1: 6.2817]	11.9+0.6s
+[9600/16000]	[L1: 6.2954]	12.1+0.3s
+[12800/16000]	[L1: 6.3204]	12.2+0.3s
+[16000/16000]	[L1: 6.3171]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04807 (Best: 32.05738 @epoch 260)
+Total: 0.47s
+
+[Epoch 266]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1903]	12.1+0.6s
+[6400/16000]	[L1: 6.2859]	12.2+0.3s
+[9600/16000]	[L1: 6.2584]	12.1+0.4s
+[12800/16000]	[L1: 6.2894]	12.0+0.5s
+[16000/16000]	[L1: 6.2838]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.98835 (Best: 32.05738 @epoch 260)
+Total: 0.50s
+
+[Epoch 267]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2742]	12.3+0.7s
+[6400/16000]	[L1: 6.2684]	12.0+0.5s
+[9600/16000]	[L1: 6.3218]	12.2+0.2s
+[12800/16000]	[L1: 6.3250]	12.3+0.1s
+[16000/16000]	[L1: 6.3024]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03429 (Best: 32.05738 @epoch 260)
+Total: 0.51s
+
+[Epoch 268]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1993]	12.2+0.6s
+[6400/16000]	[L1: 6.2048]	12.2+0.3s
+[9600/16000]	[L1: 6.2943]	12.1+0.4s
+[12800/16000]	[L1: 6.2741]	12.1+0.4s
+[16000/16000]	[L1: 6.2972]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02352 (Best: 32.05738 @epoch 260)
+Total: 0.48s
+
+[Epoch 269]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3195]	12.2+0.6s
+[6400/16000]	[L1: 6.3750]	12.1+0.5s
+[9600/16000]	[L1: 6.3802]	12.1+0.4s
+[12800/16000]	[L1: 6.3845]	12.1+0.4s
+[16000/16000]	[L1: 6.3789]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04148 (Best: 32.05738 @epoch 260)
+Total: 0.48s
+
+[Epoch 270]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2916]	12.1+0.8s
+[6400/16000]	[L1: 6.3261]	12.1+0.4s
+[9600/16000]	[L1: 6.2876]	12.2+0.4s
+[12800/16000]	[L1: 6.2977]	12.0+0.5s
+[16000/16000]	[L1: 6.2591]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99475 (Best: 32.05738 @epoch 260)
+Total: 0.48s
+
+[Epoch 271]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2931]	12.1+0.6s
+[6400/16000]	[L1: 6.2613]	12.0+0.6s
+[9600/16000]	[L1: 6.3178]	12.2+0.3s
+[12800/16000]	[L1: 6.3116]	12.1+0.4s
+[16000/16000]	[L1: 6.2923]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.06376 (Best: 32.06376 @epoch 271)
+Total: 0.53s
+
+[Epoch 272]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3910]	12.2+0.6s
+[6400/16000]	[L1: 6.2791]	12.0+0.6s
+[9600/16000]	[L1: 6.2621]	12.0+0.4s
+[12800/16000]	[L1: 6.2395]	12.0+0.6s
+[16000/16000]	[L1: 6.2604]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99302 (Best: 32.06376 @epoch 271)
+Total: 0.50s
+
+[Epoch 273]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3122]	12.2+0.8s
+[6400/16000]	[L1: 6.3000]	12.0+0.5s
+[9600/16000]	[L1: 6.2840]	12.1+0.6s
+[12800/16000]	[L1: 6.3075]	12.0+0.4s
+[16000/16000]	[L1: 6.3092]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03455 (Best: 32.06376 @epoch 271)
+Total: 0.48s
+
+[Epoch 274]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2526]	12.1+0.8s
+[6400/16000]	[L1: 6.2873]	12.2+0.2s
+[9600/16000]	[L1: 6.2885]	12.1+0.4s
+[12800/16000]	[L1: 6.3102]	12.2+0.5s
+[16000/16000]	[L1: 6.3193]	12.1+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03053 (Best: 32.06376 @epoch 271)
+Total: 0.48s
+
+[Epoch 275]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3264]	12.1+0.9s
+[6400/16000]	[L1: 6.3093]	12.2+0.4s
+[9600/16000]	[L1: 6.2994]	12.2+0.3s
+[12800/16000]	[L1: 6.3011]	12.0+0.5s
+[16000/16000]	[L1: 6.3187]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04119 (Best: 32.06376 @epoch 271)
+Total: 0.48s
+
+[Epoch 276]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3398]	12.1+0.6s
+[6400/16000]	[L1: 6.2278]	12.0+0.6s
+[9600/16000]	[L1: 6.2686]	12.0+0.6s
+[12800/16000]	[L1: 6.2683]	12.0+0.7s
+[16000/16000]	[L1: 6.2669]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03494 (Best: 32.06376 @epoch 271)
+Total: 0.50s
+
+[Epoch 277]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2163]	12.1+0.8s
+[6400/16000]	[L1: 6.2241]	12.1+0.4s
+[9600/16000]	[L1: 6.2810]	12.2+0.4s
+[12800/16000]	[L1: 6.2848]	12.1+0.4s
+[16000/16000]	[L1: 6.2785]	12.0+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05053 (Best: 32.06376 @epoch 271)
+Total: 0.50s
+
+[Epoch 278]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3135]	12.2+0.7s
+[6400/16000]	[L1: 6.2969]	12.2+0.4s
+[9600/16000]	[L1: 6.2887]	12.1+0.5s
+[12800/16000]	[L1: 6.3096]	12.1+0.5s
+[16000/16000]	[L1: 6.2622]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00896 (Best: 32.06376 @epoch 271)
+Total: 0.47s
+
+[Epoch 279]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4447]	11.9+0.9s
+[6400/16000]	[L1: 6.3989]	12.1+0.3s
+[9600/16000]	[L1: 6.3700]	12.2+0.4s
+[12800/16000]	[L1: 6.3368]	12.3+0.1s
+[16000/16000]	[L1: 6.3113]	12.1+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05797 (Best: 32.06376 @epoch 271)
+Total: 0.49s
+
+[Epoch 280]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2852]	12.0+0.8s
+[6400/16000]	[L1: 6.2620]	12.1+0.5s
+[9600/16000]	[L1: 6.3036]	12.0+0.6s
+[12800/16000]	[L1: 6.2995]	12.1+0.5s
+[16000/16000]	[L1: 6.3181]	12.2+0.1s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03870 (Best: 32.06376 @epoch 271)
+Total: 0.47s
+
+[Epoch 281]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2695]	12.0+0.9s
+[6400/16000]	[L1: 6.2563]	12.1+0.4s
+[9600/16000]	[L1: 6.2839]	12.1+0.5s
+[12800/16000]	[L1: 6.2881]	12.0+0.6s
+[16000/16000]	[L1: 6.3178]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01283 (Best: 32.06376 @epoch 271)
+Total: 0.47s
+
+[Epoch 282]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3057]	12.0+0.9s
+[6400/16000]	[L1: 6.3506]	12.2+0.5s
+[9600/16000]	[L1: 6.3636]	12.2+0.4s
+[12800/16000]	[L1: 6.3485]	12.0+0.5s
+[16000/16000]	[L1: 6.3570]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03950 (Best: 32.06376 @epoch 271)
+Total: 0.46s
+
+[Epoch 283]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3483]	12.1+0.8s
+[6400/16000]	[L1: 6.3358]	12.1+0.5s
+[9600/16000]	[L1: 6.3194]	11.9+0.7s
+[12800/16000]	[L1: 6.3204]	12.1+0.4s
+[16000/16000]	[L1: 6.3064]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03989 (Best: 32.06376 @epoch 271)
+Total: 0.48s
+
+[Epoch 284]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2151]	12.3+0.5s
+[6400/16000]	[L1: 6.3263]	12.1+0.5s
+[9600/16000]	[L1: 6.3262]	12.3+0.2s
+[12800/16000]	[L1: 6.2882]	12.1+0.5s
+[16000/16000]	[L1: 6.2741]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00809 (Best: 32.06376 @epoch 271)
+Total: 0.49s
+
+[Epoch 285]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2377]	11.9+1.1s
+[6400/16000]	[L1: 6.2836]	12.2+0.2s
+[9600/16000]	[L1: 6.2448]	12.1+0.6s
+[12800/16000]	[L1: 6.2752]	12.1+0.7s
+[16000/16000]	[L1: 6.3117]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04144 (Best: 32.06376 @epoch 271)
+Total: 0.51s
+
+[Epoch 286]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3879]	12.1+0.9s
+[6400/16000]	[L1: 6.2303]	12.1+0.5s
+[9600/16000]	[L1: 6.2528]	12.2+0.4s
+[12800/16000]	[L1: 6.2643]	12.1+0.4s
+[16000/16000]	[L1: 6.2482]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02303 (Best: 32.06376 @epoch 271)
+Total: 0.53s
+
+[Epoch 287]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2937]	12.0+0.9s
+[6400/16000]	[L1: 6.3148]	12.1+0.4s
+[9600/16000]	[L1: 6.2867]	12.2+0.4s
+[12800/16000]	[L1: 6.2894]	12.1+0.4s
+[16000/16000]	[L1: 6.3231]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01393 (Best: 32.06376 @epoch 271)
+Total: 0.52s
+
+[Epoch 288]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2685]	12.2+0.6s
+[6400/16000]	[L1: 6.3622]	12.2+0.4s
+[9600/16000]	[L1: 6.3529]	12.1+0.5s
+[12800/16000]	[L1: 6.3443]	12.0+0.6s
+[16000/16000]	[L1: 6.3231]	11.9+0.7s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99677 (Best: 32.06376 @epoch 271)
+Total: 0.53s
+
+[Epoch 289]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2877]	12.1+0.9s
+[6400/16000]	[L1: 6.2900]	12.1+0.4s
+[9600/16000]	[L1: 6.2934]	12.2+0.3s
+[12800/16000]	[L1: 6.3127]	12.1+0.5s
+[16000/16000]	[L1: 6.3286]	12.2+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02631 (Best: 32.06376 @epoch 271)
+Total: 0.48s
+
+[Epoch 290]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1222]	12.2+0.7s
+[6400/16000]	[L1: 6.1842]	12.0+0.4s
+[9600/16000]	[L1: 6.2178]	12.0+0.5s
+[12800/16000]	[L1: 6.2295]	12.0+0.5s
+[16000/16000]	[L1: 6.2665]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03305 (Best: 32.06376 @epoch 271)
+Total: 0.50s
+
+[Epoch 291]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3237]	12.2+0.6s
+[6400/16000]	[L1: 6.4411]	12.1+0.4s
+[9600/16000]	[L1: 6.3931]	12.0+0.7s
+[12800/16000]	[L1: 6.3312]	12.0+0.4s
+[16000/16000]	[L1: 6.3269]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01863 (Best: 32.06376 @epoch 271)
+Total: 0.48s
+
+[Epoch 292]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5092]	12.1+0.7s
+[6400/16000]	[L1: 6.4018]	12.2+0.4s
+[9600/16000]	[L1: 6.3983]	11.8+0.8s
+[12800/16000]	[L1: 6.3613]	12.1+0.5s
+[16000/16000]	[L1: 6.3437]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01199 (Best: 32.06376 @epoch 271)
+Total: 0.49s
+
+[Epoch 293]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4077]	12.1+0.7s
+[6400/16000]	[L1: 6.4061]	12.0+0.6s
+[9600/16000]	[L1: 6.4013]	12.2+0.4s
+[12800/16000]	[L1: 6.3853]	12.0+0.5s
+[16000/16000]	[L1: 6.3611]	11.8+0.7s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05754 (Best: 32.06376 @epoch 271)
+Total: 0.47s
+
+[Epoch 294]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2831]	12.1+0.7s
+[6400/16000]	[L1: 6.3154]	11.9+0.6s
+[9600/16000]	[L1: 6.3219]	12.1+0.7s
+[12800/16000]	[L1: 6.3141]	12.0+0.7s
+[16000/16000]	[L1: 6.3202]	12.0+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02214 (Best: 32.06376 @epoch 271)
+Total: 0.51s
+
+[Epoch 295]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2980]	12.2+0.6s
+[6400/16000]	[L1: 6.3395]	11.9+0.7s
+[9600/16000]	[L1: 6.3324]	12.2+0.3s
+[12800/16000]	[L1: 6.2840]	11.9+0.5s
+[16000/16000]	[L1: 6.2996]	12.0+0.7s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01786 (Best: 32.06376 @epoch 271)
+Total: 0.48s
+
+[Epoch 296]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5306]	12.1+0.7s
+[6400/16000]	[L1: 6.4246]	12.2+0.3s
+[9600/16000]	[L1: 6.3468]	12.1+0.4s
+[12800/16000]	[L1: 6.3034]	12.1+0.4s
+[16000/16000]	[L1: 6.3129]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99690 (Best: 32.06376 @epoch 271)
+Total: 0.49s
+
+[Epoch 297]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2656]	12.0+0.9s
+[6400/16000]	[L1: 6.2195]	12.2+0.4s
+[9600/16000]	[L1: 6.2857]	11.8+0.8s
+[12800/16000]	[L1: 6.2362]	12.0+0.6s
+[16000/16000]	[L1: 6.2384]	12.0+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02357 (Best: 32.06376 @epoch 271)
+Total: 0.49s
+
+[Epoch 298]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.5379]	12.0+0.9s
+[6400/16000]	[L1: 6.4306]	12.0+0.6s
+[9600/16000]	[L1: 6.3363]	12.1+0.5s
+[12800/16000]	[L1: 6.2729]	12.1+0.5s
+[16000/16000]	[L1: 6.2790]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.08025 (Best: 32.08025 @epoch 298)
+Total: 0.50s
+
+[Epoch 299]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1564]	12.2+0.8s
+[6400/16000]	[L1: 6.1754]	12.1+0.4s
+[9600/16000]	[L1: 6.2121]	12.2+0.3s
+[12800/16000]	[L1: 6.2612]	12.0+0.5s
+[16000/16000]	[L1: 6.2401]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.07301 (Best: 32.08025 @epoch 298)
+Total: 0.53s
+
+[Epoch 300]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2678]	12.2+0.6s
+[6400/16000]	[L1: 6.2707]	12.0+0.5s
+[9600/16000]	[L1: 6.2919]	12.1+0.4s
+[12800/16000]	[L1: 6.2985]	11.9+0.6s
+[16000/16000]	[L1: 6.3197]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02809 (Best: 32.08025 @epoch 298)
+Total: 0.48s
+
+[Epoch 301]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1632]	12.1+0.9s
+[6400/16000]	[L1: 6.2394]	12.2+0.3s
+[9600/16000]	[L1: 6.2631]	12.1+0.5s
+[12800/16000]	[L1: 6.2632]	12.2+0.2s
+[16000/16000]	[L1: 6.2852]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02411 (Best: 32.08025 @epoch 298)
+Total: 0.49s
+
+[Epoch 302]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2739]	12.2+0.6s
+[6400/16000]	[L1: 6.2554]	12.0+0.4s
+[9600/16000]	[L1: 6.2575]	12.2+0.4s
+[12800/16000]	[L1: 6.2517]	12.2+0.2s
+[16000/16000]	[L1: 6.2661]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.96056 (Best: 32.08025 @epoch 298)
+Total: 0.49s
+
+[Epoch 303]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3750]	12.0+0.7s
+[6400/16000]	[L1: 6.2364]	12.1+0.6s
+[9600/16000]	[L1: 6.2445]	12.1+0.4s
+[12800/16000]	[L1: 6.2691]	12.1+0.3s
+[16000/16000]	[L1: 6.2792]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02408 (Best: 32.08025 @epoch 298)
+Total: 0.48s
+
+[Epoch 304]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4664]	12.2+0.6s
+[6400/16000]	[L1: 6.3628]	12.2+0.5s
+[9600/16000]	[L1: 6.3210]	12.1+0.3s
+[12800/16000]	[L1: 6.2642]	12.0+0.6s
+[16000/16000]	[L1: 6.2399]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05788 (Best: 32.08025 @epoch 298)
+Total: 0.50s
+
+[Epoch 305]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3482]	12.0+0.9s
+[6400/16000]	[L1: 6.4189]	12.1+0.5s
+[9600/16000]	[L1: 6.3590]	12.1+0.4s
+[12800/16000]	[L1: 6.3229]	12.2+0.2s
+[16000/16000]	[L1: 6.3069]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01723 (Best: 32.08025 @epoch 298)
+Total: 0.50s
+
+[Epoch 306]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3253]	12.0+0.7s
+[6400/16000]	[L1: 6.2594]	12.0+0.5s
+[9600/16000]	[L1: 6.2415]	12.3+0.3s
+[12800/16000]	[L1: 6.2210]	12.1+0.5s
+[16000/16000]	[L1: 6.2921]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04021 (Best: 32.08025 @epoch 298)
+Total: 0.50s
+
+[Epoch 307]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3367]	12.1+0.7s
+[6400/16000]	[L1: 6.2691]	12.0+0.6s
+[9600/16000]	[L1: 6.2438]	12.0+0.5s
+[12800/16000]	[L1: 6.2744]	12.1+0.5s
+[16000/16000]	[L1: 6.2970]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.08169 (Best: 32.08169 @epoch 307)
+Total: 0.50s
+
+[Epoch 308]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2125]	12.0+1.0s
+[6400/16000]	[L1: 6.2158]	12.1+0.5s
+[9600/16000]	[L1: 6.2565]	12.2+0.4s
+[12800/16000]	[L1: 6.3093]	12.2+0.2s
+[16000/16000]	[L1: 6.3092]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01792 (Best: 32.08169 @epoch 307)
+Total: 0.48s
+
+[Epoch 309]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4155]	12.1+0.8s
+[6400/16000]	[L1: 6.4140]	12.1+0.6s
+[9600/16000]	[L1: 6.3842]	11.9+0.5s
+[12800/16000]	[L1: 6.3542]	12.1+0.4s
+[16000/16000]	[L1: 6.3201]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05067 (Best: 32.08169 @epoch 307)
+Total: 0.50s
+
+[Epoch 310]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1196]	12.2+0.6s
+[6400/16000]	[L1: 6.2387]	12.1+0.5s
+[9600/16000]	[L1: 6.3103]	12.0+0.6s
+[12800/16000]	[L1: 6.2925]	12.0+0.5s
+[16000/16000]	[L1: 6.3111]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00776 (Best: 32.08169 @epoch 307)
+Total: 0.50s
+
+[Epoch 311]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2468]	12.1+0.7s
+[6400/16000]	[L1: 6.2209]	12.0+0.6s
+[9600/16000]	[L1: 6.2276]	12.3+0.2s
+[12800/16000]	[L1: 6.2420]	12.0+0.6s
+[16000/16000]	[L1: 6.2417]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.97958 (Best: 32.08169 @epoch 307)
+Total: 0.50s
+
+[Epoch 312]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2329]	12.0+0.8s
+[6400/16000]	[L1: 6.3119]	12.0+0.5s
+[9600/16000]	[L1: 6.3019]	12.2+0.3s
+[12800/16000]	[L1: 6.3003]	12.2+0.2s
+[16000/16000]	[L1: 6.2820]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04283 (Best: 32.08169 @epoch 307)
+Total: 0.52s
+
+[Epoch 313]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1253]	12.1+0.8s
+[6400/16000]	[L1: 6.2212]	12.2+0.3s
+[9600/16000]	[L1: 6.2693]	11.9+0.5s
+[12800/16000]	[L1: 6.2464]	12.2+0.5s
+[16000/16000]	[L1: 6.2743]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05299 (Best: 32.08169 @epoch 307)
+Total: 0.49s
+
+[Epoch 314]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2770]	12.0+0.9s
+[6400/16000]	[L1: 6.2638]	12.2+0.3s
+[9600/16000]	[L1: 6.2693]	12.2+0.3s
+[12800/16000]	[L1: 6.2747]	12.1+0.4s
+[16000/16000]	[L1: 6.3016]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02033 (Best: 32.08169 @epoch 307)
+Total: 0.51s
+
+[Epoch 315]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2910]	12.1+0.8s
+[6400/16000]	[L1: 6.3399]	12.2+0.3s
+[9600/16000]	[L1: 6.2925]	12.2+0.4s
+[12800/16000]	[L1: 6.2925]	12.1+0.5s
+[16000/16000]	[L1: 6.2743]	11.9+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03860 (Best: 32.08169 @epoch 307)
+Total: 0.48s
+
+[Epoch 316]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3579]	12.1+0.9s
+[6400/16000]	[L1: 6.2945]	12.0+0.7s
+[9600/16000]	[L1: 6.2711]	12.1+0.4s
+[12800/16000]	[L1: 6.2634]	12.0+0.5s
+[16000/16000]	[L1: 6.3012]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.07043 (Best: 32.08169 @epoch 307)
+Total: 0.53s
+
+[Epoch 317]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1894]	12.0+0.8s
+[6400/16000]	[L1: 6.2170]	12.2+0.3s
+[9600/16000]	[L1: 6.2296]	12.1+0.3s
+[12800/16000]	[L1: 6.2421]	12.2+0.3s
+[16000/16000]	[L1: 6.2472]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03741 (Best: 32.08169 @epoch 307)
+Total: 0.46s
+
+[Epoch 318]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1882]	12.2+0.6s
+[6400/16000]	[L1: 6.3077]	12.0+0.6s
+[9600/16000]	[L1: 6.3207]	12.1+0.4s
+[12800/16000]	[L1: 6.3183]	12.0+0.5s
+[16000/16000]	[L1: 6.3131]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.06888 (Best: 32.08169 @epoch 307)
+Total: 0.50s
+
+[Epoch 319]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1994]	12.1+0.8s
+[6400/16000]	[L1: 6.2465]	12.1+0.3s
+[9600/16000]	[L1: 6.3179]	12.0+0.4s
+[12800/16000]	[L1: 6.3150]	12.2+0.4s
+[16000/16000]	[L1: 6.2891]	12.1+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.07719 (Best: 32.08169 @epoch 307)
+Total: 0.49s
+
+[Epoch 320]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2616]	12.1+0.8s
+[6400/16000]	[L1: 6.2284]	11.9+0.5s
+[9600/16000]	[L1: 6.2052]	12.0+0.5s
+[12800/16000]	[L1: 6.2406]	12.2+0.4s
+[16000/16000]	[L1: 6.2901]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05857 (Best: 32.08169 @epoch 307)
+Total: 0.49s
+
+[Epoch 321]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1833]	11.9+1.0s
+[6400/16000]	[L1: 6.2723]	12.2+0.3s
+[9600/16000]	[L1: 6.2746]	12.1+0.5s
+[12800/16000]	[L1: 6.3064]	12.2+0.3s
+[16000/16000]	[L1: 6.3127]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01520 (Best: 32.08169 @epoch 307)
+Total: 0.51s
+
+[Epoch 322]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4411]	12.1+0.6s
+[6400/16000]	[L1: 6.2741]	11.6+0.8s
+[9600/16000]	[L1: 6.2325]	12.2+0.4s
+[12800/16000]	[L1: 6.2374]	12.2+0.2s
+[16000/16000]	[L1: 6.2571]	11.8+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02318 (Best: 32.08169 @epoch 307)
+Total: 0.49s
+
+[Epoch 323]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2866]	12.2+0.6s
+[6400/16000]	[L1: 6.3466]	12.1+0.3s
+[9600/16000]	[L1: 6.3364]	12.1+0.4s
+[12800/16000]	[L1: 6.3211]	11.6+0.7s
+[16000/16000]	[L1: 6.3145]	12.0+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05783 (Best: 32.08169 @epoch 307)
+Total: 0.50s
+
+[Epoch 324]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2329]	12.2+0.6s
+[6400/16000]	[L1: 6.2074]	12.1+0.5s
+[9600/16000]	[L1: 6.2370]	12.2+0.3s
+[12800/16000]	[L1: 6.2461]	12.1+0.5s
+[16000/16000]	[L1: 6.2301]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05666 (Best: 32.08169 @epoch 307)
+Total: 0.50s
+
+[Epoch 325]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3260]	12.1+0.7s
+[6400/16000]	[L1: 6.3464]	12.1+0.2s
+[9600/16000]	[L1: 6.2941]	12.1+0.5s
+[12800/16000]	[L1: 6.2734]	11.9+0.6s
+[16000/16000]	[L1: 6.2747]	11.9+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.06015 (Best: 32.08169 @epoch 307)
+Total: 0.50s
+
+[Epoch 326]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3377]	12.1+1.1s
+[6400/16000]	[L1: 6.2488]	12.1+0.5s
+[9600/16000]	[L1: 6.3040]	11.9+0.6s
+[12800/16000]	[L1: 6.3251]	11.9+0.7s
+[16000/16000]	[L1: 6.3032]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04873 (Best: 32.08169 @epoch 307)
+Total: 0.52s
+
+[Epoch 327]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3207]	12.2+0.6s
+[6400/16000]	[L1: 6.2763]	12.1+0.4s
+[9600/16000]	[L1: 6.2896]	12.2+0.4s
+[12800/16000]	[L1: 6.2597]	11.9+0.5s
+[16000/16000]	[L1: 6.2610]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.98829 (Best: 32.08169 @epoch 307)
+Total: 0.50s
+
+[Epoch 328]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4181]	12.0+0.9s
+[6400/16000]	[L1: 6.3227]	11.8+0.5s
+[9600/16000]	[L1: 6.3494]	11.9+0.4s
+[12800/16000]	[L1: 6.3488]	12.1+0.5s
+[16000/16000]	[L1: 6.3122]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.94444 (Best: 32.08169 @epoch 307)
+Total: 0.47s
+
+[Epoch 329]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2543]	11.7+1.0s
+[6400/16000]	[L1: 6.3369]	12.0+0.6s
+[9600/16000]	[L1: 6.3125]	12.1+0.4s
+[12800/16000]	[L1: 6.3078]	12.2+0.3s
+[16000/16000]	[L1: 6.3157]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.06397 (Best: 32.08169 @epoch 307)
+Total: 0.50s
+
+[Epoch 330]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3644]	12.1+0.8s
+[6400/16000]	[L1: 6.2977]	12.1+0.4s
+[9600/16000]	[L1: 6.3462]	12.1+0.5s
+[12800/16000]	[L1: 6.3296]	12.0+0.6s
+[16000/16000]	[L1: 6.2862]	11.8+0.7s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01505 (Best: 32.08169 @epoch 307)
+Total: 0.48s
+
+[Epoch 331]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3256]	12.1+0.8s
+[6400/16000]	[L1: 6.3343]	12.2+0.3s
+[9600/16000]	[L1: 6.2983]	12.2+0.4s
+[12800/16000]	[L1: 6.2606]	12.1+0.4s
+[16000/16000]	[L1: 6.2547]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04032 (Best: 32.08169 @epoch 307)
+Total: 0.53s
+
+[Epoch 332]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3192]	12.0+1.0s
+[6400/16000]	[L1: 6.2510]	12.1+0.4s
+[9600/16000]	[L1: 6.2629]	12.1+0.5s
+[12800/16000]	[L1: 6.2950]	12.3+0.3s
+[16000/16000]	[L1: 6.2865]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01060 (Best: 32.08169 @epoch 307)
+Total: 0.47s
+
+[Epoch 333]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2683]	12.3+0.6s
+[6400/16000]	[L1: 6.2993]	12.2+0.5s
+[9600/16000]	[L1: 6.2923]	12.0+0.5s
+[12800/16000]	[L1: 6.3116]	12.0+0.5s
+[16000/16000]	[L1: 6.2997]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03361 (Best: 32.08169 @epoch 307)
+Total: 0.47s
+
+[Epoch 334]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2402]	12.2+0.5s
+[6400/16000]	[L1: 6.3422]	12.2+0.6s
+[9600/16000]	[L1: 6.3359]	12.1+0.5s
+[12800/16000]	[L1: 6.3867]	12.2+0.3s
+[16000/16000]	[L1: 6.3453]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04689 (Best: 32.08169 @epoch 307)
+Total: 0.49s
+
+[Epoch 335]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4357]	12.1+0.7s
+[6400/16000]	[L1: 6.3496]	12.1+0.6s
+[9600/16000]	[L1: 6.2917]	12.1+0.4s
+[12800/16000]	[L1: 6.2809]	12.0+0.6s
+[16000/16000]	[L1: 6.2848]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05643 (Best: 32.08169 @epoch 307)
+Total: 0.51s
+
+[Epoch 336]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3269]	12.2+0.7s
+[6400/16000]	[L1: 6.2831]	12.1+0.4s
+[9600/16000]	[L1: 6.2737]	12.1+0.4s
+[12800/16000]	[L1: 6.2432]	11.9+0.9s
+[16000/16000]	[L1: 6.2516]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04801 (Best: 32.08169 @epoch 307)
+Total: 0.47s
+
+[Epoch 337]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2838]	12.1+0.6s
+[6400/16000]	[L1: 6.2947]	12.1+0.4s
+[9600/16000]	[L1: 6.3155]	12.1+0.4s
+[12800/16000]	[L1: 6.2977]	12.0+0.6s
+[16000/16000]	[L1: 6.2828]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03048 (Best: 32.08169 @epoch 307)
+Total: 0.47s
+
+[Epoch 338]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2577]	12.0+0.8s
+[6400/16000]	[L1: 6.3433]	12.0+0.5s
+[9600/16000]	[L1: 6.2933]	12.1+0.6s
+[12800/16000]	[L1: 6.2999]	12.1+0.4s
+[16000/16000]	[L1: 6.2808]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.08109 (Best: 32.08169 @epoch 307)
+Total: 0.53s
+
+[Epoch 339]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3244]	12.2+0.6s
+[6400/16000]	[L1: 6.3460]	11.9+0.6s
+[9600/16000]	[L1: 6.2731]	12.1+0.3s
+[12800/16000]	[L1: 6.2867]	12.2+0.2s
+[16000/16000]	[L1: 6.2812]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04535 (Best: 32.08169 @epoch 307)
+Total: 0.48s
+
+[Epoch 340]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4445]	12.2+0.6s
+[6400/16000]	[L1: 6.4145]	12.0+0.4s
+[9600/16000]	[L1: 6.3652]	11.9+0.7s
+[12800/16000]	[L1: 6.3513]	12.1+0.4s
+[16000/16000]	[L1: 6.3181]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00739 (Best: 32.08169 @epoch 307)
+Total: 0.47s
+
+[Epoch 341]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2893]	12.0+0.8s
+[6400/16000]	[L1: 6.2873]	12.1+0.4s
+[9600/16000]	[L1: 6.1957]	12.1+0.5s
+[12800/16000]	[L1: 6.2339]	12.2+0.5s
+[16000/16000]	[L1: 6.2532]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.06430 (Best: 32.08169 @epoch 307)
+Total: 0.51s
+
+[Epoch 342]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3771]	12.1+0.8s
+[6400/16000]	[L1: 6.3466]	12.1+0.4s
+[9600/16000]	[L1: 6.2770]	11.9+0.6s
+[12800/16000]	[L1: 6.2694]	12.0+0.6s
+[16000/16000]	[L1: 6.2898]	12.0+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05843 (Best: 32.08169 @epoch 307)
+Total: 0.51s
+
+[Epoch 343]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2458]	12.1+0.8s
+[6400/16000]	[L1: 6.2812]	12.1+0.4s
+[9600/16000]	[L1: 6.2666]	12.2+0.3s
+[12800/16000]	[L1: 6.2780]	12.1+0.6s
+[16000/16000]	[L1: 6.2854]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01136 (Best: 32.08169 @epoch 307)
+Total: 0.52s
+
+[Epoch 344]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1501]	12.2+0.7s
+[6400/16000]	[L1: 6.3204]	12.0+0.4s
+[9600/16000]	[L1: 6.2906]	12.1+0.4s
+[12800/16000]	[L1: 6.3044]	12.1+0.4s
+[16000/16000]	[L1: 6.3286]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04344 (Best: 32.08169 @epoch 307)
+Total: 0.50s
+
+[Epoch 345]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4302]	12.1+0.7s
+[6400/16000]	[L1: 6.2999]	12.2+0.3s
+[9600/16000]	[L1: 6.2940]	12.1+0.7s
+[12800/16000]	[L1: 6.2961]	12.1+0.5s
+[16000/16000]	[L1: 6.2722]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04758 (Best: 32.08169 @epoch 307)
+Total: 0.48s
+
+[Epoch 346]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2125]	12.2+0.6s
+[6400/16000]	[L1: 6.3451]	11.9+0.9s
+[9600/16000]	[L1: 6.3117]	12.1+0.4s
+[12800/16000]	[L1: 6.3157]	12.0+0.4s
+[16000/16000]	[L1: 6.3111]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.06044 (Best: 32.08169 @epoch 307)
+Total: 0.49s
+
+[Epoch 347]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2038]	12.1+0.8s
+[6400/16000]	[L1: 6.1538]	12.1+0.6s
+[9600/16000]	[L1: 6.2262]	12.1+0.5s
+[12800/16000]	[L1: 6.2399]	12.1+0.4s
+[16000/16000]	[L1: 6.2361]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.94762 (Best: 32.08169 @epoch 307)
+Total: 0.49s
+
+[Epoch 348]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1276]	12.2+0.8s
+[6400/16000]	[L1: 6.1984]	12.2+0.4s
+[9600/16000]	[L1: 6.1931]	12.2+0.4s
+[12800/16000]	[L1: 6.2047]	12.1+0.5s
+[16000/16000]	[L1: 6.2399]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.06392 (Best: 32.08169 @epoch 307)
+Total: 0.50s
+
+[Epoch 349]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2883]	12.0+0.9s
+[6400/16000]	[L1: 6.3531]	12.1+0.4s
+[9600/16000]	[L1: 6.2635]	12.1+0.5s
+[12800/16000]	[L1: 6.2616]	12.1+0.5s
+[16000/16000]	[L1: 6.2713]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03912 (Best: 32.08169 @epoch 307)
+Total: 0.54s
+
+[Epoch 350]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2188]	11.8+1.0s
+[6400/16000]	[L1: 6.1777]	12.0+0.5s
+[9600/16000]	[L1: 6.2053]	12.1+0.4s
+[12800/16000]	[L1: 6.2538]	12.1+0.6s
+[16000/16000]	[L1: 6.2741]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.06783 (Best: 32.08169 @epoch 307)
+Total: 0.49s
+
+[Epoch 351]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2593]	12.1+0.7s
+[6400/16000]	[L1: 6.2152]	12.2+0.3s
+[9600/16000]	[L1: 6.2063]	12.2+0.3s
+[12800/16000]	[L1: 6.2364]	12.1+0.5s
+[16000/16000]	[L1: 6.2396]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05657 (Best: 32.08169 @epoch 307)
+Total: 0.49s
+
+[Epoch 352]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2637]	12.0+0.9s
+[6400/16000]	[L1: 6.2642]	12.0+0.5s
+[9600/16000]	[L1: 6.3069]	12.1+0.4s
+[12800/16000]	[L1: 6.3027]	12.0+0.7s
+[16000/16000]	[L1: 6.2924]	12.0+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04659 (Best: 32.08169 @epoch 307)
+Total: 0.49s
+
+[Epoch 353]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3576]	12.2+0.7s
+[6400/16000]	[L1: 6.4230]	12.0+0.5s
+[9600/16000]	[L1: 6.3417]	12.1+0.4s
+[12800/16000]	[L1: 6.3298]	12.0+0.6s
+[16000/16000]	[L1: 6.3084]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04993 (Best: 32.08169 @epoch 307)
+Total: 0.48s
+
+[Epoch 354]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2913]	12.1+0.8s
+[6400/16000]	[L1: 6.2853]	12.2+0.3s
+[9600/16000]	[L1: 6.2739]	12.0+0.6s
+[12800/16000]	[L1: 6.2945]	12.1+0.4s
+[16000/16000]	[L1: 6.3018]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.08762 (Best: 32.08762 @epoch 354)
+Total: 0.55s
+
+[Epoch 355]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3799]	12.0+0.9s
+[6400/16000]	[L1: 6.3319]	12.1+0.5s
+[9600/16000]	[L1: 6.3183]	12.2+0.4s
+[12800/16000]	[L1: 6.2749]	12.1+0.5s
+[16000/16000]	[L1: 6.2876]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05070 (Best: 32.08762 @epoch 354)
+Total: 0.48s
+
+[Epoch 356]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4751]	12.0+1.0s
+[6400/16000]	[L1: 6.4523]	12.0+0.7s
+[9600/16000]	[L1: 6.3276]	12.1+0.2s
+[12800/16000]	[L1: 6.3073]	12.2+0.4s
+[16000/16000]	[L1: 6.3099]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04129 (Best: 32.08762 @epoch 354)
+Total: 0.50s
+
+[Epoch 357]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2993]	12.1+0.7s
+[6400/16000]	[L1: 6.2977]	12.1+0.5s
+[9600/16000]	[L1: 6.2864]	12.1+0.4s
+[12800/16000]	[L1: 6.2902]	12.2+0.3s
+[16000/16000]	[L1: 6.2605]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.09237 (Best: 32.09237 @epoch 357)
+Total: 0.48s
+
+[Epoch 358]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2576]	12.0+0.8s
+[6400/16000]	[L1: 6.3074]	12.0+0.5s
+[9600/16000]	[L1: 6.2956]	12.1+0.5s
+[12800/16000]	[L1: 6.2610]	12.1+0.5s
+[16000/16000]	[L1: 6.2711]	12.0+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.06743 (Best: 32.09237 @epoch 357)
+Total: 0.51s
+
+[Epoch 359]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3919]	12.2+0.7s
+[6400/16000]	[L1: 6.3649]	12.0+0.5s
+[9600/16000]	[L1: 6.3499]	12.1+0.3s
+[12800/16000]	[L1: 6.3431]	11.9+0.6s
+[16000/16000]	[L1: 6.3197]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02575 (Best: 32.09237 @epoch 357)
+Total: 0.49s
+
+[Epoch 360]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2757]	12.0+0.8s
+[6400/16000]	[L1: 6.2952]	11.8+0.8s
+[9600/16000]	[L1: 6.3147]	12.0+0.5s
+[12800/16000]	[L1: 6.2871]	12.0+0.5s
+[16000/16000]	[L1: 6.3011]	11.9+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04391 (Best: 32.09237 @epoch 357)
+Total: 0.52s
+
+[Epoch 361]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3454]	12.1+0.8s
+[6400/16000]	[L1: 6.3363]	12.2+0.3s
+[9600/16000]	[L1: 6.3387]	12.1+0.5s
+[12800/16000]	[L1: 6.3478]	12.1+0.3s
+[16000/16000]	[L1: 6.3326]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05413 (Best: 32.09237 @epoch 357)
+Total: 0.53s
+
+[Epoch 362]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3212]	12.1+0.6s
+[6400/16000]	[L1: 6.2548]	12.2+0.3s
+[9600/16000]	[L1: 6.2203]	12.1+0.4s
+[12800/16000]	[L1: 6.2435]	12.1+0.5s
+[16000/16000]	[L1: 6.2361]	12.0+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.07520 (Best: 32.09237 @epoch 357)
+Total: 0.50s
+
+[Epoch 363]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1818]	12.1+0.8s
+[6400/16000]	[L1: 6.1972]	12.1+0.3s
+[9600/16000]	[L1: 6.2457]	12.1+0.4s
+[12800/16000]	[L1: 6.2541]	12.1+0.4s
+[16000/16000]	[L1: 6.3057]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.06423 (Best: 32.09237 @epoch 357)
+Total: 0.49s
+
+[Epoch 364]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3406]	12.1+0.8s
+[6400/16000]	[L1: 6.3198]	12.1+0.5s
+[9600/16000]	[L1: 6.3015]	12.1+0.4s
+[12800/16000]	[L1: 6.3544]	12.0+0.5s
+[16000/16000]	[L1: 6.3116]	12.0+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02641 (Best: 32.09237 @epoch 357)
+Total: 0.52s
+
+[Epoch 365]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3581]	12.0+0.8s
+[6400/16000]	[L1: 6.3403]	12.1+0.4s
+[9600/16000]	[L1: 6.2984]	12.2+0.2s
+[12800/16000]	[L1: 6.2667]	12.1+0.3s
+[16000/16000]	[L1: 6.2632]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05738 (Best: 32.09237 @epoch 357)
+Total: 0.55s
+
+[Epoch 366]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3168]	12.0+0.9s
+[6400/16000]	[L1: 6.3318]	12.1+0.4s
+[9600/16000]	[L1: 6.2453]	12.2+0.2s
+[12800/16000]	[L1: 6.2727]	12.0+0.5s
+[16000/16000]	[L1: 6.3073]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.10372 (Best: 32.10372 @epoch 366)
+Total: 0.50s
+
+[Epoch 367]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4580]	12.0+0.8s
+[6400/16000]	[L1: 6.3906]	12.2+0.2s
+[9600/16000]	[L1: 6.3500]	12.0+0.5s
+[12800/16000]	[L1: 6.3484]	12.0+0.5s
+[16000/16000]	[L1: 6.3312]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.06443 (Best: 32.10372 @epoch 366)
+Total: 0.50s
+
+[Epoch 368]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3162]	11.9+0.9s
+[6400/16000]	[L1: 6.3600]	12.2+0.4s
+[9600/16000]	[L1: 6.3115]	12.1+0.5s
+[12800/16000]	[L1: 6.3375]	12.1+0.5s
+[16000/16000]	[L1: 6.3156]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.01842 (Best: 32.10372 @epoch 366)
+Total: 0.49s
+
+[Epoch 369]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1799]	12.1+0.7s
+[6400/16000]	[L1: 6.2142]	12.1+0.4s
+[9600/16000]	[L1: 6.2257]	12.2+0.3s
+[12800/16000]	[L1: 6.2271]	12.1+0.5s
+[16000/16000]	[L1: 6.2687]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05344 (Best: 32.10372 @epoch 366)
+Total: 0.49s
+
+[Epoch 370]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2623]	12.1+1.1s
+[6400/16000]	[L1: 6.3106]	11.7+0.7s
+[9600/16000]	[L1: 6.2772]	12.1+0.5s
+[12800/16000]	[L1: 6.2436]	12.1+0.3s
+[16000/16000]	[L1: 6.2668]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.08180 (Best: 32.10372 @epoch 366)
+Total: 0.51s
+
+[Epoch 371]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2270]	11.8+0.9s
+[6400/16000]	[L1: 6.2465]	12.0+0.8s
+[9600/16000]	[L1: 6.3324]	12.1+0.5s
+[12800/16000]	[L1: 6.2925]	12.0+0.5s
+[16000/16000]	[L1: 6.2725]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.08921 (Best: 32.10372 @epoch 366)
+Total: 0.49s
+
+[Epoch 372]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2527]	12.2+0.6s
+[6400/16000]	[L1: 6.2454]	11.9+0.6s
+[9600/16000]	[L1: 6.2385]	12.1+0.4s
+[12800/16000]	[L1: 6.2596]	12.2+0.3s
+[16000/16000]	[L1: 6.2541]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00832 (Best: 32.10372 @epoch 366)
+Total: 0.52s
+
+[Epoch 373]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1768]	12.1+0.7s
+[6400/16000]	[L1: 6.1712]	11.8+0.5s
+[9600/16000]	[L1: 6.2668]	12.0+0.7s
+[12800/16000]	[L1: 6.2490]	12.1+0.4s
+[16000/16000]	[L1: 6.2673]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03696 (Best: 32.10372 @epoch 366)
+Total: 0.49s
+
+[Epoch 374]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3648]	12.1+0.7s
+[6400/16000]	[L1: 6.3084]	12.1+0.5s
+[9600/16000]	[L1: 6.2575]	11.9+0.5s
+[12800/16000]	[L1: 6.3097]	11.9+0.6s
+[16000/16000]	[L1: 6.3040]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.07220 (Best: 32.10372 @epoch 366)
+Total: 0.53s
+
+[Epoch 375]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4139]	12.0+0.8s
+[6400/16000]	[L1: 6.3278]	12.1+0.5s
+[9600/16000]	[L1: 6.3418]	12.1+0.4s
+[12800/16000]	[L1: 6.3629]	12.1+0.3s
+[16000/16000]	[L1: 6.3066]	12.2+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05495 (Best: 32.10372 @epoch 366)
+Total: 0.51s
+
+[Epoch 376]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3548]	12.1+0.8s
+[6400/16000]	[L1: 6.2537]	11.9+0.7s
+[9600/16000]	[L1: 6.2756]	12.1+0.3s
+[12800/16000]	[L1: 6.2351]	12.2+0.2s
+[16000/16000]	[L1: 6.2741]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03104 (Best: 32.10372 @epoch 366)
+Total: 0.51s
+
+[Epoch 377]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3183]	12.2+0.8s
+[6400/16000]	[L1: 6.3511]	12.1+0.5s
+[9600/16000]	[L1: 6.3153]	12.2+0.2s
+[12800/16000]	[L1: 6.3017]	12.2+0.3s
+[16000/16000]	[L1: 6.2880]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.11253 (Best: 32.11253 @epoch 377)
+Total: 0.46s
+
+[Epoch 378]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2165]	11.9+1.0s
+[6400/16000]	[L1: 6.2105]	12.0+0.5s
+[9600/16000]	[L1: 6.2221]	12.0+0.6s
+[12800/16000]	[L1: 6.2076]	12.1+0.6s
+[16000/16000]	[L1: 6.2235]	12.0+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 31.99327 (Best: 32.11253 @epoch 377)
+Total: 0.51s
+
+[Epoch 379]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2288]	12.0+0.8s
+[6400/16000]	[L1: 6.3028]	12.1+0.4s
+[9600/16000]	[L1: 6.2985]	12.0+0.6s
+[12800/16000]	[L1: 6.2786]	12.1+0.4s
+[16000/16000]	[L1: 6.2430]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03708 (Best: 32.11253 @epoch 377)
+Total: 0.50s
+
+[Epoch 380]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3198]	12.1+0.6s
+[6400/16000]	[L1: 6.2818]	12.2+0.3s
+[9600/16000]	[L1: 6.2862]	12.1+0.5s
+[12800/16000]	[L1: 6.2976]	12.1+0.5s
+[16000/16000]	[L1: 6.2888]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.06395 (Best: 32.11253 @epoch 377)
+Total: 0.48s
+
+[Epoch 381]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2247]	12.1+0.8s
+[6400/16000]	[L1: 6.3162]	12.0+0.5s
+[9600/16000]	[L1: 6.2940]	12.2+0.2s
+[12800/16000]	[L1: 6.2656]	12.1+0.4s
+[16000/16000]	[L1: 6.2624]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05136 (Best: 32.11253 @epoch 377)
+Total: 0.52s
+
+[Epoch 382]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.0834]	12.0+0.9s
+[6400/16000]	[L1: 6.2307]	12.1+0.4s
+[9600/16000]	[L1: 6.2387]	12.1+0.3s
+[12800/16000]	[L1: 6.2391]	12.1+0.4s
+[16000/16000]	[L1: 6.2636]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.07934 (Best: 32.11253 @epoch 377)
+Total: 0.53s
+
+[Epoch 383]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2583]	12.2+0.6s
+[6400/16000]	[L1: 6.2835]	11.9+0.5s
+[9600/16000]	[L1: 6.2861]	12.1+0.5s
+[12800/16000]	[L1: 6.2674]	12.1+0.3s
+[16000/16000]	[L1: 6.2494]	11.9+0.6s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.09776 (Best: 32.11253 @epoch 377)
+Total: 0.51s
+
+[Epoch 384]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2999]	11.8+0.9s
+[6400/16000]	[L1: 6.2756]	12.2+0.4s
+[9600/16000]	[L1: 6.2851]	12.1+0.4s
+[12800/16000]	[L1: 6.2982]	12.1+0.4s
+[16000/16000]	[L1: 6.2954]	11.8+0.7s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.07531 (Best: 32.11253 @epoch 377)
+Total: 0.51s
+
+[Epoch 385]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3452]	12.1+0.9s
+[6400/16000]	[L1: 6.3385]	12.2+0.4s
+[9600/16000]	[L1: 6.3183]	12.2+0.3s
+[12800/16000]	[L1: 6.3368]	12.1+0.5s
+[16000/16000]	[L1: 6.3397]	12.0+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.07919 (Best: 32.11253 @epoch 377)
+Total: 0.45s
+
+[Epoch 386]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.4677]	12.1+0.7s
+[6400/16000]	[L1: 6.3683]	12.1+0.5s
+[9600/16000]	[L1: 6.3408]	12.0+0.5s
+[12800/16000]	[L1: 6.3329]	12.1+0.4s
+[16000/16000]	[L1: 6.3323]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.02891 (Best: 32.11253 @epoch 377)
+Total: 0.49s
+
+[Epoch 387]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2990]	12.2+0.7s
+[6400/16000]	[L1: 6.3444]	12.1+0.3s
+[9600/16000]	[L1: 6.3066]	12.1+0.4s
+[12800/16000]	[L1: 6.2778]	12.0+0.7s
+[16000/16000]	[L1: 6.2935]	12.0+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.00973 (Best: 32.11253 @epoch 377)
+Total: 0.54s
+
+[Epoch 388]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2922]	12.0+0.9s
+[6400/16000]	[L1: 6.2810]	12.2+0.3s
+[9600/16000]	[L1: 6.2703]	12.0+0.4s
+[12800/16000]	[L1: 6.2740]	12.1+0.3s
+[16000/16000]	[L1: 6.2834]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.10805 (Best: 32.11253 @epoch 377)
+Total: 0.53s
+
+[Epoch 389]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3465]	12.0+1.0s
+[6400/16000]	[L1: 6.3471]	12.0+0.7s
+[9600/16000]	[L1: 6.3271]	11.7+0.9s
+[12800/16000]	[L1: 6.2983]	11.9+0.7s
+[16000/16000]	[L1: 6.2788]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.03356 (Best: 32.11253 @epoch 377)
+Total: 0.51s
+
+[Epoch 390]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1768]	12.2+0.6s
+[6400/16000]	[L1: 6.2170]	12.0+0.6s
+[9600/16000]	[L1: 6.2442]	12.1+0.4s
+[12800/16000]	[L1: 6.2417]	12.2+0.3s
+[16000/16000]	[L1: 6.2501]	12.1+0.2s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.06886 (Best: 32.11253 @epoch 377)
+Total: 0.48s
+
+[Epoch 391]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2894]	12.1+0.7s
+[6400/16000]	[L1: 6.2775]	12.1+0.5s
+[9600/16000]	[L1: 6.2949]	12.0+0.4s
+[12800/16000]	[L1: 6.2793]	12.2+0.3s
+[16000/16000]	[L1: 6.3010]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.08484 (Best: 32.11253 @epoch 377)
+Total: 0.50s
+
+[Epoch 392]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2344]	11.9+0.9s
+[6400/16000]	[L1: 6.3247]	12.1+0.4s
+[9600/16000]	[L1: 6.2926]	12.1+0.4s
+[12800/16000]	[L1: 6.2389]	11.9+0.4s
+[16000/16000]	[L1: 6.2568]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.07290 (Best: 32.11253 @epoch 377)
+Total: 0.49s
+
+[Epoch 393]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3465]	12.1+0.7s
+[6400/16000]	[L1: 6.3466]	12.0+0.6s
+[9600/16000]	[L1: 6.3296]	12.2+0.3s
+[12800/16000]	[L1: 6.3066]	12.0+0.6s
+[16000/16000]	[L1: 6.2861]	12.0+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.07593 (Best: 32.11253 @epoch 377)
+Total: 0.52s
+
+[Epoch 394]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2250]	11.9+1.0s
+[6400/16000]	[L1: 6.2353]	11.9+0.6s
+[9600/16000]	[L1: 6.2155]	12.0+0.5s
+[12800/16000]	[L1: 6.2589]	12.2+0.3s
+[16000/16000]	[L1: 6.2619]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.06825 (Best: 32.11253 @epoch 377)
+Total: 0.48s
+
+[Epoch 395]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3563]	12.1+0.5s
+[6400/16000]	[L1: 6.3313]	12.0+0.5s
+[9600/16000]	[L1: 6.3198]	11.8+0.6s
+[12800/16000]	[L1: 6.3235]	12.1+0.4s
+[16000/16000]	[L1: 6.3272]	12.1+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.09153 (Best: 32.11253 @epoch 377)
+Total: 0.51s
+
+[Epoch 396]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.1618]	11.6+1.1s
+[6400/16000]	[L1: 6.1198]	12.1+0.5s
+[9600/16000]	[L1: 6.1654]	12.1+0.4s
+[12800/16000]	[L1: 6.2012]	12.0+0.5s
+[16000/16000]	[L1: 6.2513]	12.2+0.3s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04284 (Best: 32.11253 @epoch 377)
+Total: 0.53s
+
+[Epoch 397]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.0269]	12.0+0.9s
+[6400/16000]	[L1: 6.2287]	11.7+0.6s
+[9600/16000]	[L1: 6.2672]	12.2+0.2s
+[12800/16000]	[L1: 6.2780]	12.1+0.3s
+[16000/16000]	[L1: 6.3055]	12.1+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.06390 (Best: 32.11253 @epoch 377)
+Total: 0.50s
+
+[Epoch 398]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.2762]	12.1+0.8s
+[6400/16000]	[L1: 6.3233]	12.0+0.5s
+[9600/16000]	[L1: 6.3228]	11.8+0.5s
+[12800/16000]	[L1: 6.3333]	12.0+0.6s
+[16000/16000]	[L1: 6.3232]	12.0+0.5s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.05352 (Best: 32.11253 @epoch 377)
+Total: 0.55s
+
+[Epoch 399]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.0990]	12.1+0.7s
+[6400/16000]	[L1: 6.1883]	12.1+0.3s
+[9600/16000]	[L1: 6.2277]	12.1+0.3s
+[12800/16000]	[L1: 6.2214]	12.0+0.6s
+[16000/16000]	[L1: 6.2285]	12.2+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.10139 (Best: 32.11253 @epoch 377)
+Total: 0.49s
+
+[Epoch 400]	Learning rate: 2.00e-4
+[3200/16000]	[L1: 6.3019]	11.9+0.7s
+[6400/16000]	[L1: 6.2063]	12.1+0.4s
+[9600/16000]	[L1: 6.2814]	12.1+0.4s
+[12800/16000]	[L1: 6.3044]	11.9+0.7s
+[16000/16000]	[L1: 6.2794]	12.1+0.4s
+
+Evaluation:
+parameters of net: 833300
+[Set5 x4]	PSNR: 32.04964 (Best: 32.11253 @epoch 377)
+Total: 0.50s
+
